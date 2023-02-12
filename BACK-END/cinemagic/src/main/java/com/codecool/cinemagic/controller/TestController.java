@@ -12,7 +12,7 @@ public class TestController {
 
     @GetMapping("/test")
     public String index() {
-        String message = "TEST";
+        String message = "RAFFI, CAN YOU READ THIS?";
         return message;
     }
 }
