@@ -1,25 +1,7 @@
-import React, {useState} from 'react';
-import {useEffect} from "react";
-
-
-/*const Home = (props) => {
-    useEffect(() => {
-       return(
-        console.log(props))
-    }, [])}*/
-
-
-/*function Home(props) {
-    return(
-        <div>
-            <h1>{props}</h1>
-        </div>
-    )
-}*/
+import React, {useEffect, useState} from 'react';
 
 function Home() {
     const [stringData, setStringData] = useState("");
-
 
     useEffect(() => {
         async function fetchData() {
@@ -30,7 +12,6 @@ function Home() {
 
         fetchData();
     }, []);
-
 
     return (
         <div>
