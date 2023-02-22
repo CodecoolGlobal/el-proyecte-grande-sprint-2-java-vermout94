@@ -14,6 +14,7 @@ function GetLatestMovies() {
     }, []);
 
     const latestMovies = jsonData.results;
+
     return (
         <div>
             <Home data={latestMovies} />
