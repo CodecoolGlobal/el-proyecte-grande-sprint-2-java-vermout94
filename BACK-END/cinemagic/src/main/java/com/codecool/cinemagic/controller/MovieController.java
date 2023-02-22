@@ -19,5 +19,6 @@ public class MovieController {
             String uri = "https://api.themoviedb.org/3/movie/now_playing?api_key={api_key}&language=en-US&page=1";
             String response = restTemplate.getForObject(uri, String.class, api_key);
             return response;
+            // changes to push idea changes
         }
     }
