@@ -3,6 +3,7 @@ import {Routes, Route} from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./components/home/Home";
 import Header from "./components/header/Header";
+import GetLatestMovies from "./components/api/GetLatestMovies";
 
 
 function App() {

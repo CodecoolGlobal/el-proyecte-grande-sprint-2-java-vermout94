@@ -1,23 +1,23 @@
 import React, {useEffect, useState} from 'react';
 
-function Home() {
-    const [stringData, setStringData] = useState("");
+function Home(props) {
 
-    useEffect(() => {
-        async function fetchData() {
-            const response = await fetch("http://localhost:8080/cinemagic/test");
-            const data = await response.text();
-            setStringData(data);
-        }
-
-        fetchData();
-    }, []);
+    const { data } = props;
+    console.log(props);
 
     return (
         <div>
-            <h1>{stringData}</h1>
+            { JSON.stringify(props) }
+            <h2>Latest Movies</h2>
+            <ul>
+                {Array.isArray(data) && data.map(movie => (
+                    <li key={movie.id}>
+                        <h3>{movie.title}</h3>
+                        <p>{movie.description}</p>
+                    </li>
+                ))}
+            </ul>
         </div>
-    )
+    );
 }
-
 export default Home
