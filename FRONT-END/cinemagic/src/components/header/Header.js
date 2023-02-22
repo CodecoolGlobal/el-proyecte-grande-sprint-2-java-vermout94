@@ -9,9 +9,9 @@ import {NavLink} from "react-router-dom";
 
 const Header = () => {
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="black" expand="lg">
             <Container fluid>
-                <Navbar.Brand href="/" style={{color: "darkblue"}}>
+                <Navbar.Brand href="/" style={{color: "white"}}>
                     <FontAwesomeIcon icon={faFilm}/>CINEMAGIC
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll"/>
@@ -19,8 +19,8 @@ const Header = () => {
                     <Nav className="me-auto my-2 my-lg-0"
                          style={{maxHeight: '3000px'}}
                          navbarScroll>
-                        <NavLink className="nav-link" to="/">Home</NavLink>
-                        <NavLink className="nav-link" to="/movies">Movies</NavLink>
+                        <NavLink className="nav-link" to="/" style={{color: 'white', textDecoration: 'none'}}>Home</NavLink>
+                        <NavLink className="nav-link" to="/movies" style={{color: 'white', textDecoration: 'none'}}>Movies</NavLink>
                     </Nav>
                     <Button variant="outline-info">Login</Button>
                     <Button variant="outline-info">Sign Up</Button>
