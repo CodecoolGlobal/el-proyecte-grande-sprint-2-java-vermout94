@@ -1,19 +1,15 @@
 import React from 'react';
 import {Routes, Route} from "react-router-dom";
-import Layout from "./components/Layout";
-import Header from "./components/header/Header";
-import GetLatestMovies from "./components/api/GetLatestMovies";
+import Layout from "./layout/Layout";
+import FetchLatestMovies from "./api/FetchLatestMovies";
 import "./App.css"
-
 
 function App() {
     return (
-
         <div className="Data">
-            <Header/>
             <Routes>
                 <Route path="/" element={<Layout/>}>
-                    <Route path="/" element={<GetLatestMovies/>}></Route>
+                    <Route path="/" element={<FetchLatestMovies/>}></Route>
                 </Route>
             </Routes>
         </div>

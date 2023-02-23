@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
+/*TODO Check why the import font isn't working at the moment*/
+
 *{
     box-sizing: border-box;
     font-family: 'Quicksand', Arial, Helvetica, sans-serif;
