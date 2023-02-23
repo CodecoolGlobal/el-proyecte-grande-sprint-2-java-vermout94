@@ -1,0 +1,2 @@
+tmdbApi:
+  apiKey: ${TMDB_API_KEY}
