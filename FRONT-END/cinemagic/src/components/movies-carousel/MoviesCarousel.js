@@ -2,6 +2,7 @@ import React from 'react';
 import Carousel from 'react-material-ui-carousel';
 import { Paper } from '@mui/material';
 import Header from "../../components/header/Header";
+import "./MovieCarousel.css"
 
 
 function MoviesCarousel(props) {

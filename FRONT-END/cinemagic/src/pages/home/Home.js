@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Home.css"
+import "../../components/movies-carousel/MovieCarousel.css"
 import Header from "../../components/header/Header";
 import MoviesCarousel from "../../components/movies-carousel/MoviesCarousel"
 
