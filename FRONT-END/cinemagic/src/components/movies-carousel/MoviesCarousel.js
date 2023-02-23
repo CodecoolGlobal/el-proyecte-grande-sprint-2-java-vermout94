@@ -14,6 +14,7 @@ function MoviesCarousel(props) {
     return (
         <div className ='movie-carousel-container'>
             <Header/>
+            <h2 style={{color: "white"}}>Featured movies</h2>
             <Carousel>
                 {
                     data && data.map(movie =>{

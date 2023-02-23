@@ -14,7 +14,7 @@
 
 }
 .movie-card-container{
-    height: 550px;
+    height: 600px;
     background-color: black;
 }
 .movie-card{
@@ -35,6 +35,8 @@
     color:white;
     display: flex;
     align-items: center;
+    text-shadow: 2px 2px 2px rgba(0,0,0,1);
+
 }
 
 .movie-buttons-container{

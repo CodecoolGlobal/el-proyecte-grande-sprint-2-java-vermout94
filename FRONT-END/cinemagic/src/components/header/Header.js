@@ -9,7 +9,7 @@ import {NavLink} from "react-router-dom";
 
 const Header = () => {
     return (
-        <Navbar bg="black" expand="lg">
+        <Navbar expand="lg">
             <Container fluid>
                 <Navbar.Brand href="/" style={{color: "white"}}>
                     <FontAwesomeIcon icon={faFilm}/>CINEMAGIC
