@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import Home from "../home/Home";
+import MoviesCarousel from "../components/movies-carousel/MoviesCarousel";
 
-function GetLatestMovies() {
+function FetchLatestMovies() {
     const [jsonData, setJsonData] = useState({});
 
     useEffect(() => {
@@ -17,9 +17,9 @@ function GetLatestMovies() {
 
     return (
         <div>
-            <Home data={latestMovies} />
+            <MoviesCarousel data={latestMovies} />
         </div>
     );
 }
 
-export default GetLatestMovies;
+export default FetchLatestMovies;
