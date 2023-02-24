@@ -34,7 +34,7 @@ public class MovieController {
 
     @GetMapping("/most-popular-movies")
     public String mostPopularMovies() {
-        String uri = "https://api.themoviedb.org/3/movie/popular?api_key={apiKey}&language=en-US&page=1&region=DE";
+        String uri = "https://api.themoviedb.org/3/movie/popular?api_key={apiKey}&language=en-US&page=1&region=DE"; //TODO: in application.yml and use bean
         return doApiCall(uri);
     }
 
@@ -47,6 +47,6 @@ public class MovieController {
 
     public String doApiCall(String uri) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(uri, String.class, apiKey);
+        return restTemplate.getForObject(uri, String.class, apiKey); //TODO: use webclient instead of resttemplate, dont create it everytime, use bean ionjection
     }
 }
