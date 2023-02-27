@@ -49,4 +49,6 @@ public class MovieController {
         RestTemplate restTemplate = new RestTemplate();
         return restTemplate.getForObject(uri, String.class, apiKey); //TODO: use webclient instead of resttemplate, dont create it everytime, use bean ionjection
     }
+
+    //TODO: also add TV shows
 }
