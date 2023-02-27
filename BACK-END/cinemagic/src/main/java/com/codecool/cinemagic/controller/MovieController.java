@@ -1,11 +1,12 @@
 package com.codecool.cinemagic.controller;
 
+import com.codecool.cinemagic.Service.ApiService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 @CrossOrigin
 @RestController
@@ -13,40 +14,24 @@ import org.springframework.web.client.RestTemplate;
 @RequestMapping("/cinemagic")
 public class MovieController {
 
-    private final String apiKey;
+    private final ApiService apiService;
 
-    public MovieController(String apiKey) {
-        this.apiKey = apiKey;
+    public MovieController(ApiService apiService) {
+        this.apiService = apiService;
     }
 
     @GetMapping("/latest-movies")
-    public String latestMovies() {
-        String uri = "https://api.themoviedb.org/3/movie/now_playing?api_key={apiKey}&language=en-US&page=1";
-        return doApiCall(uri);
+    public String latestMovies(@Value("${apiLinks.latest-movies-uri}") String uri, @Value("${tmdbApi.apiKey}") String apiKey) {
+        return apiService.doApiCall(uri, apiKey);
     }
 
     @GetMapping("/top-rated-movies")
-    public String topRatedMovies() {
-        String uri = "https://api.themoviedb.org/3/movie/top_rated?api_key={apiKey}&language=en-US&page=1&region=DE";
-        return doApiCall(uri);
+    public String topRatedMovies(@Value("${apiLinks.top-rated-movies-uri}") String uri, @Value("${tmdbApi.apiKey}") String apiKey) {
+        return apiService.doApiCall(uri, apiKey);
     }
-
 
     @GetMapping("/most-popular-movies")
-    public String mostPopularMovies() {
-        String uri = "https://api.themoviedb.org/3/movie/popular?api_key={apiKey}&language=en-US&page=1&region=DE";
-        return doApiCall(uri);
-    }
-
-    //TODO: add fetch data from react and post it to the backend, really needed?
-    /*@GetMapping("/movie/{movie_Id}"){
-        RestTemplate restTemplate = new RestTemplate();
-        String uri = "https://api.themoviedb.org/3/movie/{movie_id}?api_key={apiKey}&language=en-US";
-        return restTemplate.getForObject(uri, String.class, apiKey, movie_Id);
-    }*/
-
-    public String doApiCall(String uri) {
-        RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(uri, String.class, apiKey);
+    public String mostPopularMovies(@Value("${apiLinks.most-popular-movies-uri}") String uri, @Value("${tmdbApi.apiKey}") String apiKey) {
+        return apiService.doApiCall(uri, apiKey);
     }
 }
