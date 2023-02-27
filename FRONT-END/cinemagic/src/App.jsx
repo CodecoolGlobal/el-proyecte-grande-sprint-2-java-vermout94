@@ -1,19 +1,21 @@
-import React from 'react';
-import {Routes, Route} from "react-router-dom";
-import Layout from "./layout/Layout";
-import FetchLatestMovies from "./api/FetchLatestMovies";
-import "./App.css"
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import './index.css'
+import {createBrowserRouter, RouterProvider,} from "react-router-dom";
+import Home, {homeLoader} from "./pages/home/Home";
 
-function App() {
-    return (
-        <div className="Data">
-            <Routes>
-                <Route path="/" element={<Layout/>}>
-                    <Route path="/" element={<FetchLatestMovies/>}></Route>
-                </Route>
-            </Routes>
-        </div>
-    );
-}
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Home/>,
+        loader: homeLoader,
+        /*errorElement: <Error/>,*/
+        children: [],
+    },
+])
 
-export default App;
+ReactDOM.createRoot(document.getElementById('root')).render(
+    <React.StrictMode>
+        <RouterProvider router={router}/>
+    </React.StrictMode>,
+)

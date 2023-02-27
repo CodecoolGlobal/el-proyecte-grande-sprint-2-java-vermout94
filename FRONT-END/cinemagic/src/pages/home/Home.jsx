@@ -1,16 +1,23 @@
 import React from 'react';
-import "../../components/movies-carousel/MovieCarousel.css"
-import Header from "../../components/header/Header";
-import MoviesCarousel from "../../components/movies-carousel/MoviesCarousel"
+import "../../components/MovieCarousel.css"
+import Header from "../../components/Header";
+import MoviesCarousel from "../../components/MoviesCarousel"
+import {fetchLatestMovies} from "./homeService";
+import {useLoaderData} from "react-router-dom";
 
+export async function homeLoader() {
+    const carouselData = await fetchLatestMovies();
+    return  {carouselData};
+}
 
 function Home() {
-
+    const {carouselData} = useLoaderData();
     return (
-        <div className ='movie-carousel-container'>
+        <div className='movie-carousel-container'>
             <Header/>
-            <MoviesCarousel/>
+            <MoviesCarousel data={carouselData}/>
         </div>
     );
 }
-export default Home
+
+export default Home;

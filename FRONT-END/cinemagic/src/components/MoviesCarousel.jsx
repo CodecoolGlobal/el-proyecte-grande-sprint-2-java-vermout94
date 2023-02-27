@@ -1,7 +1,6 @@
 import React from 'react';
 import Carousel from 'react-material-ui-carousel';
 import { Paper } from '@mui/material';
-import Header from "../header/Header";
 import "./MovieCarousel.css"
 
 
@@ -13,7 +12,6 @@ function MoviesCarousel(props) {
 
     return (
         <div className ='movie-carousel-container'>
-            <Header/>
             <h2 style={{color: "white"}}>Featured movies</h2>
             <Carousel>
                 {
