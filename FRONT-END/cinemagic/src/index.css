@@ -1,2 +1,16 @@
-/*
-TODO Add all the styles to this file*/
+/*The body of our page*/
+body {
+    background-color: black;
+}
+
+/*MoviesCarousel.jsx*/
+.movie-backdrop{
+    width: 100%;
+    filter: brightness(50%);
+}
+
+.movie-poster {
+    display: flex;
+}
+
+

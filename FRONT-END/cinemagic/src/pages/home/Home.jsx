@@ -1,5 +1,4 @@
 import React from 'react';
-import "../../components/MovieCarousel.css"
 import Header from "../../components/Header";
 import MoviesCarousel from "../../components/MoviesCarousel"
 import {fetchLatestMovies} from "./homeService";
