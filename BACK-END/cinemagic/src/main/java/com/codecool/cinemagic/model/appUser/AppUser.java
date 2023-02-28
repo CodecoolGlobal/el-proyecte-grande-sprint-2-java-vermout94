@@ -10,6 +10,8 @@ import jakarta.persistence.GenerationType;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -29,9 +31,9 @@ public class AppUser {
     private String email;
     @NonNull
     private String password;
+
+    private List<String> favouriteMovies;
     @Enumerated(EnumType.STRING)
     private AppUserRole appUserRole;
-    private Boolean locked = false;
-    private Boolean enabled = false;
 
 }

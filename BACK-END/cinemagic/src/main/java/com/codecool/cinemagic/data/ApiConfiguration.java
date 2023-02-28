@@ -9,6 +9,7 @@ public class ApiConfiguration {
     @Value("${tmdbApi.apiKey}")
     private String apiKey;
 
+    //Movie URIs
     @Value("${apiLinks.top-rated-movies-uri}")
     private String topRatedMoviesUri;
 
@@ -17,6 +18,20 @@ public class ApiConfiguration {
 
     @Value("${apiLinks.most-popular-movies-uri}")
     private String mostPopularMoviesUri;
+
+    @Value("${apiLinks.upcoming-movies-uri}")
+    private String upcomingMoviesUri;
+
+    //TV URIs
+    @Value("${apiLinks.top-rated-tv-uri}")
+    private String topRatedTvUri;
+
+    @Value("${apiLinks.latest-tv-uri}")
+    private String latestTvUri;
+
+    @Value("${apiLinks.most-popular-tv-uri}")
+    private String mostPopularTvUri;
+
 
    @Bean
     public String getApiKey() {
@@ -37,4 +52,25 @@ public class ApiConfiguration {
     public String getMostPopularMoviesUri(){
        return mostPopularMoviesUri;
     }
+
+    @Bean
+    public String getUpcomingMoviesUri(){
+       return upcomingMoviesUri;
+    }
+
+   @Bean
+    public String getTopRatedTvUri() {
+       return topRatedTvUri;
+    }
+
+    @Bean
+    public String getLatestTvUri() {
+       return latestTvUri;
+    }
+
+    @Bean
+    public String getMostPopularTvUri(){
+       return mostPopularTvUri;
+    }
+
 }
