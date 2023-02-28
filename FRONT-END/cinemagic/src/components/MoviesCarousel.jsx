@@ -8,7 +8,7 @@ function MoviesCarousel(props) {
 
     return (
         <div>
-            <h2 className="text-white">Latest movies</h2>
+            <h3 className="text-white">Latest Movies</h3>
 
             <Carousel indicators={false} nextLabel={""} prevLabel={""}>
                 {data &&

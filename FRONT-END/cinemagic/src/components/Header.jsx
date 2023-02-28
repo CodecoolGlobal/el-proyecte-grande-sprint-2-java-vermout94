@@ -19,8 +19,9 @@ const Header = () => {
                     <Nav className="me-auto my-2 my-lg-0"
                          style={{maxHeight: '3000px'}}
                          navbarScroll>
-                        <NavLink className="nav-link" to="/" style={{color: 'white', textDecoration: 'none'}}>Home</NavLink>
-                        <NavLink className="nav-link" to="/movies" style={{color: 'white', textDecoration: 'none'}}>Movies</NavLink>
+                        <NavLink className="nav-link" to="/">Latest Movies</NavLink>
+                        <NavLink className="nav-link" to="/popular-movies">Popular Movies</NavLink>
+                        <NavLink className="nav-link" to="/top-rated-movies">Top Rated Movies</NavLink>
                     </Nav>
                     <Button variant="outline-info">Login</Button>
                     <Button variant="outline-info">Sign Up</Button>
