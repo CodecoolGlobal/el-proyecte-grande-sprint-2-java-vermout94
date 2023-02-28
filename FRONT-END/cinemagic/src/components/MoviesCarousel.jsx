@@ -10,7 +10,7 @@ function MoviesCarousel(props) {
         <div>
             <h2 className="text-white">Latest movies</h2>
 
-            <Carousel>
+            <Carousel indicators={false} nextLabel={""} prevLabel={""}>
                 {data &&
                     data.map((movie) => {
                         return (
@@ -26,7 +26,7 @@ function MoviesCarousel(props) {
                                         src={`${posterUrl}${movie.poster_path}`}
                                         alt={`${movie.title} poster`}
                                     />
-                                    <h3>{movie.title}</h3>
+                                    <h3 className={"movie-title"}>{movie.title}</h3>
                                 </Carousel.Caption>
                             </Carousel.Item>
                         );
