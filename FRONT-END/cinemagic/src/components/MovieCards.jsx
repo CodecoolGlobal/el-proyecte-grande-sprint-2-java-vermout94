@@ -3,7 +3,6 @@ import Card from "react-bootstrap/Card";
 
 const MovieCards = (props) => {
     const { data } = props;
-    console.log(data);
     const posterUrl = "https://www.themoviedb.org/t/p/w220_and_h330_face";
 
     return (
