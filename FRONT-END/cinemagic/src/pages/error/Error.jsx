@@ -1,5 +1,4 @@
-/*
-TODO Create Error Page*/
+/*TODO Create Error Page*/
 import React from 'react';
 
 function Error() {

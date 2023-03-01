@@ -1,17 +1,17 @@
 import React from 'react';
 import Card from "react-bootstrap/Card";
 
-const MovieCard = ({pageTitle, movies}) => {
+const MediaCard = ({title, data}) => {
     const posterUrl = "https://www.themoviedb.org/t/p/w220_and_h330_face";
     return (
         <div>
-            <h3 className="text-white">{pageTitle}</h3>
+            <h3 className="text-white">{title}</h3>
             <div className={"movie-card-container"}>
-                {movies && Array.isArray(movies) &&
-                    movies.map((movie) => {
+                {data && Array.isArray(data) &&
+                    data.map((media) => {
                         return (
                             <Card
-                                key={movie.id}
+                                key={media.id}
                                 bg="transparent"
                                 border="dark"
                                 text={"light"}
@@ -19,11 +19,11 @@ const MovieCard = ({pageTitle, movies}) => {
                             >
                                 <Card.Img
                                     variant="top"
-                                    src={`${posterUrl}/${movie.poster_path}`}
+                                    src={`${posterUrl}/${media.poster_path}`}
                                 />
                                 <Card.Body>
                                     <Card.Title>
-                                        {movie.title}
+                                        {media.title}
                                     </Card.Title>
                                 </Card.Body>
                             </Card>
@@ -34,4 +34,4 @@ const MovieCard = ({pageTitle, movies}) => {
     );
 };
 
-export default MovieCard;
+export default MediaCard;
