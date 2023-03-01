@@ -1,4 +1,6 @@
+/*react*/
 import React from 'react';
+/*bootstrap*/
 import Card from "react-bootstrap/Card";
 
 const MediaCard = ({title, data}) => {

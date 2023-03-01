@@ -1,11 +1,16 @@
+/*react*/
 import React from "react";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faFilm} from "@fortawesome/free-solid-svg-icons";
+import {NavLink} from "react-router-dom";
+/*bootstrap*/
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import {NavLink} from "react-router-dom";
+/*@fortawesome*/
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faFilm} from "@fortawesome/free-solid-svg-icons";
+
+
 
 const Header = () => {
     return (

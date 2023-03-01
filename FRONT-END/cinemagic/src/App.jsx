@@ -1,10 +1,15 @@
+/*react*/
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
 import {createBrowserRouter, RouterProvider,} from "react-router-dom";
+/*components*/
 import LatestMovies, {latestMoviesLoader} from "./pages/latest-movies/LatestMovies";
 import PopularMovies, {popularMoviesLoader} from "./pages/popular-movies/PopularMovies";
 import TopRatedMovies, {topRatedMoviesLoader} from "./pages/top-rated-movies/TopRatedMovies";
+/*css*/
+import './index.css'
+
+
 
 const router = createBrowserRouter([
     {

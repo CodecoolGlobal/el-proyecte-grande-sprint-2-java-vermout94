@@ -1,4 +1,6 @@
+/*react*/
 import React from 'react';
+/*bootstrap*/
 import {Figure} from "react-bootstrap";
 
 const MediaFigure = ({title, data}) => {

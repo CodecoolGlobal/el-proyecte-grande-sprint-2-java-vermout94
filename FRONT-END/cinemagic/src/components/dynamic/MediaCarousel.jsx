@@ -1,4 +1,6 @@
+/*react*/
 import React from 'react';
+/*bootstrap*/
 import {Carousel} from 'react-bootstrap';
 
 function MediaCarousel({title, data}) {
