@@ -47,14 +47,14 @@ body {
     flex-basis: calc(20% - 1rem); /* Set the width of each card to 20% minus the margin */
 }
 
-/*TopRatedMoviesFigure.jsx*/
-.movie-figure-container {
+/*MediaFigure.jsx*/
+.media-figure-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.movie-figure-container > figure {
+.media-figure-container > figure {
     margin: 20px;
     display: flex;
     align-items: center;
@@ -62,14 +62,14 @@ body {
     border-radius: 10px;
 }
 
-.movie-figure-container > figure > img {
+.media-figure-container > figure > img {
     margin-right: 20px;
     border-radius: 10px;
     margin-bottom: 0;
 
 }
 
-.movie-figure-container > figure > figcaption {
+.media-figure-container > figure > figcaption {
     color: whitesmoke;
     max-width: 500px;
     text-align: left;
