@@ -2,7 +2,6 @@
 import React from 'react';
 import {useLoaderData} from "react-router-dom";
 /*components*/
-import Header from "../../components/Header";
 import MediaCard from "../../components/dynamic/MediaCard";
 /*helpers.js*/
 import {fetchHelper} from "../../helpers";
@@ -16,7 +15,6 @@ const PopularMovies = () => {
     const popularMovies = useLoaderData();
     return (
         <div>
-            <Header/>
             <MediaCard
                 title={"Popular Movies"}
                 data={popularMovies}

@@ -2,7 +2,6 @@
 import React from 'react';
 import {useLoaderData} from "react-router-dom";
 /*components*/
-import Header from "../../components/Header";
 import MediaCarousel from "../../components/dynamic/MediaCarousel"
 /*helpers.js*/
 import {fetchHelper} from "../../helpers"
@@ -17,7 +16,6 @@ function LatestMovies() {
     const latestMovies = useLoaderData();
     return (
         <div>
-            <Header/>
             <MediaCarousel
                 title={"Latest Movies"}
                 data={latestMovies}
