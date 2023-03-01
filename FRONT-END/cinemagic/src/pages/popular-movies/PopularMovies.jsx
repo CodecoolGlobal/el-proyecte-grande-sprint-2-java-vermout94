@@ -1,19 +1,22 @@
 import React from 'react';
 import {useLoaderData} from "react-router-dom";
 import Header from "../../components/Header";
-import MovieCards from "../../components/MovieCards";
 import {fetchPopularMovies} from "./popularMoviesService";
+import MovieCard from "../../components/MovieCard";
 
 export async function popularMoviesLoader() {
-    const popularMoviesData = await fetchPopularMovies();
-    return {popularMoviesData};
+    const popularMovies = await fetchPopularMovies();
+    return popularMovies;
 }
 const PopularMovies = () => {
-    const {popularMoviesData} = useLoaderData();
+    const popularMovies = useLoaderData();
     return (
         <div>
             <Header/>
-            <MovieCards data={popularMoviesData}/>
+            <MovieCard
+                pageTitle={"Popular Movies"}
+                movies={popularMovies}
+            />
         </div>
     );
 };

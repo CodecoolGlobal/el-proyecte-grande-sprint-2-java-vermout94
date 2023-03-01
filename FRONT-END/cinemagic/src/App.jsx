@@ -13,7 +13,6 @@ const router = createBrowserRouter([
         loader: latestMoviesLoader,
         /*errorElement: <Error/>,
         children: [],
-
         I left this on purpose as a reference*/
     },
     {

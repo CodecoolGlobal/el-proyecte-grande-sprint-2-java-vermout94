@@ -33,7 +33,7 @@ body {
     color: white !important;
 }
 
-/*MovieCards.jsx*/
+/*MovieCard.jsx*/
 .movie-card-container {
     display: flex;
     flex-wrap: wrap;
