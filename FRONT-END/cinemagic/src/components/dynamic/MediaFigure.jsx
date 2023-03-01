@@ -3,13 +3,12 @@ import React from 'react';
 /*bootstrap*/
 import {Figure} from "react-bootstrap";
 
-const MediaFigure = ({title, data}) => {
+const MediaFigure = ({data}) => {
     /*TODO find a way to save this URL and the Backdrop URL somewhere (Also do this in LatestMovies and PopularMovies*/
     const posterUrl = "https://www.themoviedb.org/t/p/w220_and_h330_face";
 
     return (
         <div>
-            <h3 className="text-white">{title}</h3>
             <div className="media-figure-container">
                 {data && Array.isArray(data) &&
                     data.map((media) => {
@@ -41,6 +40,3 @@ const MediaFigure = ({title, data}) => {
 };
 
 export default MediaFigure;
-
-
-

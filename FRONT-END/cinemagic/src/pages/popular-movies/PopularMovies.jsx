@@ -16,7 +16,6 @@ const PopularMovies = () => {
     return (
         <div>
             <MediaCard
-                title={"Popular Movies"}
                 data={popularMovies}
             />
         </div>

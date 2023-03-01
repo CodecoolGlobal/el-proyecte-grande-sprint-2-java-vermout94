@@ -17,7 +17,6 @@ function LatestMovies() {
     return (
         <div>
             <MediaCarousel
-                title={"Latest Movies"}
                 data={latestMovies}
             />
         </div>

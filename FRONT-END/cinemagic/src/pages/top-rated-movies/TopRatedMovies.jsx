@@ -16,7 +16,6 @@ const TopRatedMovies = () => {
     return (
         <div>
             <MediaFigure
-                title={"Top Rated Movies"}
                 data={topRatedMovies}
             />
         </div>

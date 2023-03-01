@@ -3,12 +3,11 @@ import React from 'react';
 /*bootstrap*/
 import Card from "react-bootstrap/Card";
 
-const MediaCard = ({title, data}) => {
+const MediaCard = ({data}) => {
     const posterUrl = "https://www.themoviedb.org/t/p/w220_and_h330_face";
 
     return (
         <div>
-            <h3 className="text-white">{title}</h3>
             <div className={"media-card-container"}>
                 {data && Array.isArray(data) &&
                     data.map((media) => {
