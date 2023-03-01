@@ -5,13 +5,13 @@ body {
     background-color: black;
 }
 
-/*MoviesCarousel.jsx*/
-.movie-backdrop{
+/*MediaCarousel.jsx*/
+.media-backdrop{
     width: 100%;
     filter: brightness(50%);
 }
 
-.movie-title {
+.media-title {
     padding-top: 35px;
 }
 
@@ -34,7 +34,7 @@ body {
 }
 
 /*MediaCard.jsx*/
-.movie-card-container {
+.media-card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -42,7 +42,7 @@ body {
     margin: 0 auto; /* Center the container horizontally */
 }
 
-.movie-card-container .card {
+.media-card-container .card {
     margin-bottom: 1rem; /* Add some space between each card */
     flex-basis: calc(20% - 1rem); /* Set the width of each card to 20% minus the margin */
 }
