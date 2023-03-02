@@ -8,7 +8,6 @@ const Main = () => {
     return (
         <div className={"layout"}>
             <Header/>
-            <br></br>
             <main>
                 <Outlet/>
             </main>
