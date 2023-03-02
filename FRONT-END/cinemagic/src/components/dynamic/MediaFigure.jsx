@@ -35,9 +35,10 @@ const MediaFigure = ({ data }) => {
                                 <div style={figureBackgroundStyle}></div>
                                 <Figure.Image src={`${posterUrl}/${media.poster_path}`} />
                                 <Figure.Caption>
-                                    <p>
-                                        <h4>{media.title}</h4>
-                                    </p>
+                                    <h4>
+                                        {media.title}
+                                    </h4>
+                                    <br></br>
                                     <p>
                                         Rating: {media.vote_average}
                                     </p>
@@ -56,7 +57,6 @@ const MediaFigure = ({ data }) => {
             </div>
         </div>
     );
-};
-
+}
 export default MediaFigure;
 
