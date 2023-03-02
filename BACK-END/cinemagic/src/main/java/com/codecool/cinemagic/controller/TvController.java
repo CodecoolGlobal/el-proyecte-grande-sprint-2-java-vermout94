@@ -12,26 +12,26 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Component
 @RequestMapping("/cinemagic")
-public class MovieController {
+public class TvController {
 
     private final ApiService apiService;
 
-    public MovieController(ApiService apiService) {
+    public TvController(ApiService apiService) {
         this.apiService = apiService;
     }
 
-    @GetMapping("/latest-movies")
-    public String latestMovies(@Value("${apiLinks.latest-movies-uri}") String uri, @Value("${tmdbApi.apiKey}") String apiKey) {
+    @GetMapping("/latest-tv-shows")
+    public String latestMovies(@Value("${apiLinks.latest-tv-uri}") String uri, @Value("${tmdbApi.apiKey}") String apiKey) {
         return apiService.doApiCall(uri, apiKey);
     }
 
-    @GetMapping("/top-rated-movies")
-    public String topRatedMovies(@Value("${apiLinks.top-rated-movies-uri}") String uri, @Value("${tmdbApi.apiKey}") String apiKey) {
+    @GetMapping("/top-rated-tv-shows")
+    public String topRatedMovies(@Value("${apiLinks.top-rated-tv-uri}") String uri, @Value("${tmdbApi.apiKey}") String apiKey) {
         return apiService.doApiCall(uri, apiKey);
     }
 
-    @GetMapping("/most-popular-movies")
-    public String mostPopularMovies(@Value("${apiLinks.most-popular-movies-uri}") String uri, @Value("${tmdbApi.apiKey}") String apiKey) {
+    @GetMapping("/most-popular-tv-shows")
+    public String mostPopularMovies(@Value("${apiLinks.most-popular-tv-uri}") String uri, @Value("${tmdbApi.apiKey}") String apiKey) {
         return apiService.doApiCall(uri, apiKey);
     }
 }
