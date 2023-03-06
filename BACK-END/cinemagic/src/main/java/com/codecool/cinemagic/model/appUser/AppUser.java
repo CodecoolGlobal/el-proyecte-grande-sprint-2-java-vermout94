@@ -2,13 +2,9 @@ package com.codecool.cinemagic.model.appUser;
 
 
 //TODO: switch from jakarta -> javax, when dependencies are fixed
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.Id;
+
 
 import java.util.List;
 
@@ -19,8 +15,8 @@ import java.util.List;
 @NoArgsConstructor
 public class AppUser {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue
+    private long id;
     @NonNull
     private String username;
     @NonNull

@@ -2,10 +2,9 @@
 import React from 'react';
 /*bootstrap*/
 import Card from "react-bootstrap/Card";
+import { POSTER_URL } from '../../data/api';
 
 const MediaCard = ({data}) => {
-    const posterUrl = "https://www.themoviedb.org/t/p/w220_and_h330_face";
-
     return (
         <div>
             <div className={"media-card-container"}>
@@ -21,7 +20,7 @@ const MediaCard = ({data}) => {
                             >
                                 <Card.Img
                                     variant="top"
-                                    src={`${posterUrl}/${media.poster_path}`}
+                                    src={`${POSTER_URL}/${media.poster_path}`}
                                 />
                                 <Card.Body>
                                     <Card.Title>

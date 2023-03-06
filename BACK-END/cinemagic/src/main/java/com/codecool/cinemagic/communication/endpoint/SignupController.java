@@ -1,8 +1,8 @@
-package com.codecool.cinemagic.controller;
+package com.codecool.cinemagic.communication.endpoint;
 
 
-import com.codecool.cinemagic.Service.SignupRequest;
-import com.codecool.cinemagic.Service.SignupService;
+import com.codecool.cinemagic.service.SignupRequest;
+import com.codecool.cinemagic.service.SignupService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.web.bind.annotation.RequestBody;
