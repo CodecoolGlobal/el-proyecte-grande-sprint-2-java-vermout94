@@ -1,6 +1,6 @@
 /*react*/
 import React from 'react';
-/*TODO brainstorm what we could display on our main page*/
+/*TODO brainstorm what we could display on our main page / ask EL for approval*/
 const Home = () => {
     return (
         <div>
