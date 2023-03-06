@@ -1,11 +1,9 @@
 package com.codecool.cinemagic.model.appUser;
 
 
-//TODO: switch from jakarta -> javax, when dependencies are fixed
+//TODO: switch from jakarta -> javax, when dependencies are fixed - stay with jakarta? read up
 import jakarta.persistence.*;
 import lombok.*;
-
-
 import java.util.List;
 
 @Entity
