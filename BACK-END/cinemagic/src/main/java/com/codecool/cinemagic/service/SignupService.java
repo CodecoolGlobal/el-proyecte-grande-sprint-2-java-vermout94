@@ -1,4 +1,4 @@
-package com.codecool.cinemagic.Service;
+package com.codecool.cinemagic.service;
 
 public class SignupService {
     public String signup(SignupRequest request) {
