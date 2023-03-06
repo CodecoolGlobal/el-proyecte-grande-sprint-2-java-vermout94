@@ -2,7 +2,8 @@
 import React from 'react';
 /*bootstrap*/
 import Card from "react-bootstrap/Card";
-import { POSTER_URL } from '../../data/api';
+/*apiConstants.js*/
+import {POSTER_URL} from '../../data/apiConstants';
 
 const MediaCard = ({data}) => {
     return (

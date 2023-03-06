@@ -15,13 +15,13 @@ const Header = () => {
             <Container fluid>
                 <div className="d-flex align-items-center me-auto">
                     <Navbar.Brand href="/">
-                        <img src={logo} width="250" height="40" alt="logo" />
+                        <img src={logo} width="250" height="40" alt="logo"/>
                     </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="navbarScroll" />
+                    <Navbar.Toggle aria-controls="navbarScroll"/>
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
                             className="me-auto my-2 my-lg-0"
-                            style={{ maxHeight: "3000px" }}
+                            style={{maxHeight: "3000px"}}
                             navbarScroll
                         >
                             <NavLink className="nav-link" to="/latest-movies">

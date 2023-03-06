@@ -5,20 +5,19 @@ import {useLoaderData} from "react-router-dom";
 import MediaFigure from "../../components/dynamic/MediaFigure";
 /*helpers.js*/
 import {fetchHelper} from "../../helpers";
+/*apiConstants.js*/
+import {TOP_RATED_MOVIES_URL} from "../../data/apiConstants";
 
 
 export const topRatedMoviesLoader = async () => {
-    const topRatedMovies = await fetchHelper("http://localhost:8080/cinemagic/top-rated-movies");
-    return topRatedMovies;
+    return await fetchHelper(TOP_RATED_MOVIES_URL);
 }
 const TopRatedMovies = () => {
     const topRatedMovies = useLoaderData();
     return (
-        <div>
-            <MediaFigure
-                data={topRatedMovies}
-            />
-        </div>
+        <>
+            <MediaFigure data={topRatedMovies}/>
+        </>
     );
 };
 

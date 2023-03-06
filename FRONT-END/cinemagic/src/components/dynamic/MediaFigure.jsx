@@ -2,12 +2,11 @@
 import React from 'react';
 /*bootstrap*/
 import {Figure} from "react-bootstrap";
+/*apiConstants.js*/
+import {POSTER_URL} from "../../data/apiConstants";
+import {BACKDROP_URL} from "../../data/apiConstants";
 
-const MediaFigure = ({ data }) => {
-    /*TODO ask EL how to save those urls in a better way*/
-    const posterUrl = "https://www.themoviedb.org/t/p/w220_and_h330_face";
-    const backgroundUrl = "https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces";
-
+const MediaFigure = ({data}) => {
     return (
         <div>
             <div className="media-figure-container">
@@ -24,7 +23,7 @@ const MediaFigure = ({ data }) => {
                             left: 0,
                             width: '100%',
                             height: '100%',
-                            backgroundImage: `url(${backgroundUrl}/${media.poster_path})`,
+                            backgroundImage: `url(${BACKDROP_URL}/${media.poster_path})`,
                             filter: 'brightness(25%)',
                             zIndex: -1, // set z-index to -1 to position behind Figure
                             backgroundSize: 'cover',
@@ -33,7 +32,7 @@ const MediaFigure = ({ data }) => {
                         return (
                             <Figure key={media.id} style={figureStyle}>
                                 <div style={figureBackgroundStyle}></div>
-                                <Figure.Image src={`${posterUrl}/${media.poster_path}`} />
+                                <Figure.Image src={`${POSTER_URL}/${media.poster_path}`}/>
                                 <Figure.Caption>
                                     <h4>
                                         {media.title}

@@ -22,17 +22,17 @@ const router = createBrowserRouter([
               element: <Home/>
             },
             {
-                path: "/latest-movies",
+                path: "latest-movies",
                 element: <LatestMovies/>,
                 loader: latestMoviesLoader,
             },
             {
-                path: "/popular-movies",
+                path: "popular-movies",
                 element: <PopularMovies/>,
                 loader: popularMoviesLoader,
             },
             {
-                path: "/top-rated-movies",
+                path: "top-rated-movies",
                 element: <TopRatedMovies/>,
                 loader: topRatedMoviesLoader,
             },

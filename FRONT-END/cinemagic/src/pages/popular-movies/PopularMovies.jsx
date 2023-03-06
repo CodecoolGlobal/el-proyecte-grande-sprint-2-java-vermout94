@@ -5,20 +5,19 @@ import {useLoaderData} from "react-router-dom";
 import MediaCard from "../../components/dynamic/MediaCard";
 /*helpers.js*/
 import {fetchHelper} from "../../helpers";
-
+/*apiConstants.js*/
+import {POPULAR_MOVIES_URL} from "../../data/apiConstants";
 
 export async function popularMoviesLoader() {
-    const popularMovies = await fetchHelper("http://localhost:8080/cinemagic/most-popular-movies");
-    return popularMovies;
+    return await fetchHelper(POPULAR_MOVIES_URL);
 }
+
 const PopularMovies = () => {
     const popularMovies = useLoaderData();
     return (
-        <div>
-            <MediaCard
-                data={popularMovies}
-            />
-        </div>
+        <>
+            <MediaCard data={popularMovies}/>
+        </>
     );
 };
 
