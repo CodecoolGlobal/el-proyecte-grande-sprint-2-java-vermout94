@@ -1,25 +1,25 @@
 package com.codecool.cinemagic.service;
 
-import lombok.RequiredArgsConstructor;
 import com.codecool.cinemagic.communication.client.ApiClient;
 import com.codecool.cinemagic.configuration.tmdb.ApiContext;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class MovieService {
+public class TvService {
     private final ApiClient apiClient;
     private final ApiContext apiContext;
 
     public String findLatest() {
-        return apiClient.get(apiContext.movies().latest());
+        return apiClient.get(apiContext.tv().latest());
     }
 
     public String findTopRated() {
-        return apiClient.get(apiContext.movies().topRated());
+        return apiClient.get(apiContext.tv().topRated());
     }
 
     public String findMostPopular() {
-        return apiClient.get(apiContext.movies().mostPopular());
+        return apiClient.get(apiContext.tv().mostPopular());
     }
 }

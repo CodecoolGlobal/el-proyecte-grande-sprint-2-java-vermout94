@@ -1,7 +1,7 @@
 package com.codecool.cinemagic.communication.client;
 
-import com.codecool.cinemagic.configuration.tmdb.ApiContext;
 import lombok.RequiredArgsConstructor;
+import com.codecool.cinemagic.configuration.tmdb.ApiContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.reactive.function.client.WebClient;
 
