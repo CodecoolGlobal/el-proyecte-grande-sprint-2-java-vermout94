@@ -19,13 +19,13 @@ public class MovieEndpoint {
         return movieService.findLatest();
     }
 
-    @GetMapping("top-rated")
-    public String topRatedMovies() {
-        return movieService.findTopRated();
-    }
-
     @GetMapping("most-popular")
     public String mostPopularMovies() {
         return movieService.findMostPopular();
+    }
+
+    @GetMapping("top-rated")
+    public String topRatedMovies() {
+        return movieService.findTopRated();
     }
 }

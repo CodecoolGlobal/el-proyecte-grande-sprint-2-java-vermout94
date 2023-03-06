@@ -24,13 +24,13 @@ const Header = () => {
                             style={{maxHeight: "3000px"}}
                             navbarScroll
                         >
-                            <NavLink className="nav-link" to="/latest-movies">
+                            <NavLink className="nav-link" to="/movies/latest">
                                 Latest Movies
                             </NavLink>
-                            <NavLink className="nav-link" to="/popular-movies">
+                            <NavLink className="nav-link" to="/movies/most-popular">
                                 Popular Movies
                             </NavLink>
-                            <NavLink className="nav-link" to="/top-rated-movies">
+                            <NavLink className="nav-link" to="/movies/top-rated">
                                 Top Rated Movies
                             </NavLink>
                         </Nav>
