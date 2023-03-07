@@ -39,6 +39,14 @@ body {
     color: #b6adfc !important;
 }
 
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-toggle::after {
+    display:none;
+}
+
 /*MediaCard.jsx*/
 .media-card-container {
     display: flex;

@@ -6,10 +6,13 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
 /*logo*/
 import logo from '../assets/navbar-logo.png';
+/*css*/
+import '../index.css';
 
-const Header = () => {
+export default function Header() {
     return (
         <Navbar expand="lg">
             <Container fluid>
@@ -24,15 +27,18 @@ const Header = () => {
                             style={{maxHeight: "3000px"}}
                             navbarScroll
                         >
-                            <NavLink className="nav-link" to="/movies/latest">
-                                Latest Movies
-                            </NavLink>
-                            <NavLink className="nav-link" to="/movies/most-popular">
-                                Popular Movies
-                            </NavLink>
-                            <NavLink className="nav-link" to="/movies/top-rated">
-                                Top Rated Movies
-                            </NavLink>
+                            <NavDropdown title="Movies" id="movies-dropdown" renderMenuOnMount={true}>
+                                <NavDropdown.Item href="/movies/latest">Latest</NavDropdown.Item>
+                                <NavDropdown.Item href="/movies/most-popular">Most Popular</NavDropdown.Item>
+                                <NavDropdown.Item href="/movies/top-rated">Top rated</NavDropdown.Item>
+                                <NavDropdown.Item href="/movies/upcoming">Upcoming</NavDropdown.Item>
+                            </NavDropdown>
+                            <NavDropdown title="TV shows" id="tv-dropdown" renderMenuOnMount={true}>
+                                <NavDropdown.Item href="/tv/latest">Latest</NavDropdown.Item>
+                                <NavDropdown.Item href="/tv/most-popular">Most Popular</NavDropdown.Item>
+                                <NavDropdown.Item href="/tv/top-rated">Top rated</NavDropdown.Item>
+                            </NavDropdown>
+                            <Nav.Link href="/people">People</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </div>
@@ -48,6 +54,3 @@ const Header = () => {
         </Navbar>
     );
 };
-
-export default Header;
-

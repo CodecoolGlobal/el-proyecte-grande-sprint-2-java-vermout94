@@ -16,17 +16,17 @@ public class TvEndpoint {
     private final TvService tvService;
 
     @GetMapping("latest")
-    public String latestMovies() {
+    public String latestTv() {
         return tvService.findLatest();
     }
 
     @GetMapping("top-rated")
-    public String topRatedMovies() {
+    public String topRatedTv() {
         return tvService.findTopRated();
     }
 
-    @GetMapping("/most-popular")
-    public String mostPopularMovies() {
+    @GetMapping("most-popular")
+    public String mostPopularTv() {
         return tvService.findMostPopular();
     }
 }

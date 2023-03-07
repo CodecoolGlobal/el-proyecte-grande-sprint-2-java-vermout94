@@ -25,7 +25,7 @@ const MediaCard = ({data}) => {
                                 />
                                 <Card.Body>
                                     <Card.Title>
-                                        {media.title}
+                                        {media.title ? media.title : media.name}
                                     </Card.Title>
                                 </Card.Body>
                             </Card>

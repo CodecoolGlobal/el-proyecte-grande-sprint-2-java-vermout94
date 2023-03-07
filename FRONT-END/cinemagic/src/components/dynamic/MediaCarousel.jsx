@@ -25,7 +25,7 @@ function MediaCarousel({data}) {
                                         alt={`${media.title} poster`}
                                     />
                                     <h3 className={"media-title"}>
-                                        {media.title}
+                                        {media.title ? media.title : media.name}
                                     </h3>
                                 </Carousel.Caption>
                             </Carousel.Item>
