@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("cinemagic/tv")
+@RequestMapping("/tv")
 @CrossOrigin
 @RequiredArgsConstructor
 public class TvEndpoint {
@@ -20,13 +20,13 @@ public class TvEndpoint {
         return tvService.findLatest();
     }
 
-    @GetMapping("top-rated")
-    public String topRatedMovies() {
-        return tvService.findTopRated();
-    }
-
     @GetMapping("/most-popular")
     public String mostPopularMovies() {
         return tvService.findMostPopular();
+    }
+
+    @GetMapping("top-rated")
+    public String topRatedMovies() {
+        return tvService.findTopRated();
     }
 }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("cinemagic/movies")
+@RequestMapping("/movies")
 @CrossOrigin
 @RequiredArgsConstructor
 public class MovieEndpoint {

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/cinemagic/signup")
+@RequestMapping("/signup")
 @AllArgsConstructor
 @NoArgsConstructor          //TODO:delete later on
 public class SignupController {
