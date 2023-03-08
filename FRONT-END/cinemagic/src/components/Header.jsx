@@ -34,7 +34,6 @@ export default function Header() {
                                 <NavDropdown.Item href="/movies/upcoming">Upcoming</NavDropdown.Item>
                             </NavDropdown>
                             <NavDropdown title="TV shows" id="tv-dropdown" renderMenuOnMount={true}>
-                                <NavDropdown.Item href="/tv/latest">Latest</NavDropdown.Item>
                                 <NavDropdown.Item href="/tv/most-popular">Most Popular</NavDropdown.Item>
                                 <NavDropdown.Item href="/tv/top-rated">Top rated</NavDropdown.Item>
                             </NavDropdown>

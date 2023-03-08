@@ -1,17 +1,16 @@
 /*localhost*/
-export const BACKEND_URL = "http://localhost:8080";
+export const BACKEND_URL = "http://localhost:8080/cinemagic";
 /*movies*/
 /*TODO Change URLS to backend/cinemagic/movies/latest or cinemagic/movies/popular or cinemagic/movies/toprated*/
-export const LATEST_MOVIES_URL = `${BACKEND_URL}/cinemagic/movies/latest`;
-export const POPULAR_MOVIES_URL = `${BACKEND_URL}/cinemagic/movies/most-popular`;
-export const TOP_RATED_MOVIES_URL = `${BACKEND_URL}/cinemagic/movies/top-rated`;
-export const UPCOMING_MOVIES_URL = `${BACKEND_URL}/cinemagic/movies/upcoming`;
+export const LATEST_MOVIES_URL = `${BACKEND_URL}/movies/latest`;
+export const POPULAR_MOVIES_URL = `${BACKEND_URL}/movies/most-popular`;
+export const TOP_RATED_MOVIES_URL = `${BACKEND_URL}/movies/top-rated`;
+export const UPCOMING_MOVIES_URL = `${BACKEND_URL}/movies/upcoming`;
 /*tv*/
-export const LATEST_TV_URL = `${BACKEND_URL}/cinemagic/tv/latest`;
-export const POPULAR_TV_URL = `${BACKEND_URL}/cinemagic/tv/most-popular`;
-export const TOP_RATED_TV_URL = `${BACKEND_URL}/cinemagic/tv/top-rated`;
+export const POPULAR_TV_URL = `${BACKEND_URL}/tv/most-popular`;
+export const TOP_RATED_TV_URL = `${BACKEND_URL}/tv/top-rated`;
 /*people*/
-export const PEOPLE_URL = `${BACKEND_URL}/cinemagic/people`;
+export const PEOPLE_URL = `${BACKEND_URL}/people`;
 
 
 /* External APIs */

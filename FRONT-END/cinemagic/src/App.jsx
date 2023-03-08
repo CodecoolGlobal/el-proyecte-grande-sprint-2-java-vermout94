@@ -8,7 +8,6 @@ import Main from "./layouts/Main";
 import LatestMovies, {latestMoviesLoader} from "./pages/movie/latest/LatestMovies";
 import PopularMovies, {popularMoviesLoader} from "./pages/movie/popular/PopularMovies";
 import TopRatedMovies, {topRatedMoviesLoader} from "./pages/movie/top-rated/TopRatedMovies";
-import LatestTv, {latestTvLoader} from "./pages/tv/latest/LatestTv";
 import PopularTv, {popularTvLoader} from "./pages/tv/popular/PopularTv";
 import TopRatedTv, {topRatedTvLoader} from "./pages/tv/top-rated/TopRatedTv";
 import Home from "./pages/home/Home";
@@ -41,11 +40,6 @@ const router = createBrowserRouter([
                 path: "/movies/top-rated",
                 element: <TopRatedMovies/>,
                 loader: topRatedMoviesLoader,
-            },
-            {
-                path: "/tv/latest",
-                element: <LatestTv/>,
-                loader: latestTvLoader,
             },
             {
                 path: "/tv/most-popular",
