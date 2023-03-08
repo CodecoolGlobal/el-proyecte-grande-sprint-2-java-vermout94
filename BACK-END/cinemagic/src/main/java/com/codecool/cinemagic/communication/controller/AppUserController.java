@@ -22,12 +22,18 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("api/users")
-@AllArgsConstructor
-@NoArgsConstructor          //TODO:delete later on
+/*@AllArgsConstructor
+@NoArgsConstructor */         //TODO:delete later on
 public class AppUserController {
     @Autowired
     private AppUserRepository appUserRepository;
+
     @PostMapping("/signup")
+    public AppUser signup(@RequestBody AppUser appUser) {
+        return appUserRepository.save(appUser);
+    }
+
+   /* @PostMapping("/signup")
     public ResponseEntity<AppUser> signup(@RequestBody AppUser user) {
         // Check if the username already exists
         Optional<AppUser> existingUser = appUserRepository.findByUsername(user.getUsername());
@@ -44,5 +50,5 @@ public class AppUserController {
 
         // Return the saved user object in the response body
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
-    }
+    }*/
 }

@@ -5,8 +5,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.*;
 
-import java.util.Optional;
-
 @Entity
 @Getter
 @Setter
