@@ -1,5 +1,5 @@
 /*localhost*/
-export const BACKEND_URL = "http://localhost:8080/cinemagic";
+export const BACKEND_URL = "http://localhost:8080";
 /*movies*/
 /*TODO Change URLS to backend/cinemagic/movies/latest or cinemagic/movies/popular or cinemagic/movies/toprated*/
 export const LATEST_MOVIES_URL = `${BACKEND_URL}/movies/latest`;
@@ -10,7 +10,7 @@ export const UPCOMING_MOVIES_URL = `${BACKEND_URL}/movies/upcoming`;
 export const POPULAR_TV_URL = `${BACKEND_URL}/tv/most-popular`;
 export const TOP_RATED_TV_URL = `${BACKEND_URL}/tv/top-rated`;
 /*people*/
-export const PEOPLE_URL = `${BACKEND_URL}/people`;
+export const PEOPLE_URL = `${BACKEND_URL}/people/most-popular`;
 
 
 /* External APIs */

@@ -6,7 +6,6 @@ import {useLoaderData} from "react-router-dom";
 import MediaCarousel from "../../components/dynamic/MediaCarousel";
 /*apiConstants.js*/
 import {LATEST_MOVIES_URL} from "../../data/apiConstants";
-import {LATEST_TV_URL} from "../../data/apiConstants";
 /*helpers.js*/
 import {fetchHelper} from "../../helpers";
 /*pages*/
