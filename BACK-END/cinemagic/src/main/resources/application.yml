@@ -11,3 +11,13 @@ api:
       most-popular: https://api.themoviedb.org/3/tv/popular?api_key={apiKey}&language=en-US&page=1&region=DE
     people:
       most-popular: https://api.themoviedb.org/3/person/popular?api_key={apiKey}&language=en-US&page=1&region=DE
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:8080/your_database_name
+    username: your_database_username
+    password: your_database_password
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
