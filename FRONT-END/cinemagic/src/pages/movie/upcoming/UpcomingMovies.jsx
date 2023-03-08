@@ -9,7 +9,7 @@ import {fetchHelper} from "../../../helpers";
 import {UPCOMING_MOVIES_URL} from "../../../data/apiConstants";
 
 
-export const upcomingMoviesLoader = async () => {
+export async function upcomingMoviesLoader() {
     return await fetchHelper(UPCOMING_MOVIES_URL);
 }
 export default function UpcomingMovies() {

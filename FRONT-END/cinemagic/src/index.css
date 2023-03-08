@@ -35,16 +35,26 @@ body {
     color: white !important;
 }
 
-.nav-link.active {
+.nav-link:active{
     color: #b6adfc !important;
+}
+
+.navbar-brand {
+    color: white !important;
 }
 
 .nav-item.dropdown:hover .dropdown-menu {
     display: block;
+    background-color: white !important;
+
 }
 
 .dropdown-toggle::after {
     display:none;
+}
+
+.nav-item.dropdown .dropdown-item:hover {
+    background-color: #b6adfc;
 }
 
 /*MediaCard.jsx*/

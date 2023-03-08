@@ -10,10 +10,12 @@ import PopularMovies, {popularMoviesLoader} from "./pages/movie/popular/PopularM
 import TopRatedMovies, {topRatedMoviesLoader} from "./pages/movie/top-rated/TopRatedMovies";
 import PopularTv, {popularTvLoader} from "./pages/tv/popular/PopularTv";
 import TopRatedTv, {topRatedTvLoader} from "./pages/tv/top-rated/TopRatedTv";
-import Home from "./pages/home/Home";
 import People, {peopleLoader} from "./pages/People";
+import Home, {homeLoader} from "./pages/home/Home";
+import UpcomingMovies, {upcomingMoviesLoader} from "./pages/movie/upcoming/UpcomingMovies";
 /*css*/
 import './index.css'
+
 
 
 
@@ -25,6 +27,7 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <Home/>,
+                loader: homeLoader,
             },
             {
                 path: "/movies/latest",
@@ -40,6 +43,11 @@ const router = createBrowserRouter([
                 path: "/movies/top-rated",
                 element: <TopRatedMovies/>,
                 loader: topRatedMoviesLoader,
+            },
+            {
+                path: "/movies/upcoming",
+                element: <UpcomingMovies/>,
+                loader: upcomingMoviesLoader,
             },
             {
                 path: "/tv/most-popular",

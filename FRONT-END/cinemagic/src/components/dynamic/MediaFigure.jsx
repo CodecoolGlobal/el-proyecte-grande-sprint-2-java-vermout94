@@ -35,11 +35,11 @@ const MediaFigure = ({data}) => {
                                 <Figure.Image src={`${POSTER_URL}/${media.poster_path}`}/>
                                 <Figure.Caption>
                                     <h4>
-                                        {media.title}
+                                        {media.title ? media.title : media.name}
                                     </h4>
                                     <br></br>
                                     <p>
-                                        Rating: {media.vote_average}
+                                        {media.release_date > new Date().toISOString().split('T')[0] ? "" : `Rating: ${media.vote_average}`}
                                     </p>
                                     <p>
                                         Release Date: {media.release_date}
