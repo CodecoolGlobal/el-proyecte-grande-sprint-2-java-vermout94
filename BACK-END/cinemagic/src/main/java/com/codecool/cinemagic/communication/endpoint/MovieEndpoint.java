@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/movies")
+@RequestMapping("movies")
 @CrossOrigin
 @RequiredArgsConstructor
 public class MovieEndpoint {
@@ -28,4 +28,7 @@ public class MovieEndpoint {
     public String topRatedMovies() {
         return movieService.findTopRated();
     }
+
+    @GetMapping("upcoming")
+    public String upcomingMovies() { return movieService.findUpcoming();}
 }

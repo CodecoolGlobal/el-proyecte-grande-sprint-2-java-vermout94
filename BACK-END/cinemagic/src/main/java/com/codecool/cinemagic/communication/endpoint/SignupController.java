@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/signup")
+@RequestMapping("signup")
 @AllArgsConstructor
 @NoArgsConstructor          //TODO:delete later on
 public class SignupController {

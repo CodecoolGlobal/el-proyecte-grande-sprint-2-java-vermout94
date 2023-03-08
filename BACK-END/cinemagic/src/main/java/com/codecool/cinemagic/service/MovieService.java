@@ -22,4 +22,7 @@ public class MovieService {
     public String findMostPopular() {
         return apiClient.get(apiContext.movies().mostPopular());
     }
+
+    public String findUpcoming() { return apiClient.get(apiContext.movies().upcoming()); }
 }
+

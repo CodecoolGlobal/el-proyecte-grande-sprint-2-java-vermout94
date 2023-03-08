@@ -8,7 +8,6 @@ api:
       upcoming: https://api.themoviedb.org/3/movie/upcoming?api_key={apiKey}&language=en-US&page=1&region=DE
     tv:
       top-rated: https://api.themoviedb.org/3/tv/top_rated?api_key={apiKey}&language=en-US&page=1&region=DE
-      latest: https://api.themoviedb.org/3/tv/latest?api_key={apiKey}&language=en-US&page=1&region=DE
       most-popular: https://api.themoviedb.org/3/tv/popular?api_key={apiKey}&language=en-US&page=1&region=DE
     people:
       most-popular: https://api.themoviedb.org/3/person/popular?api_key={apiKey}&language=en-US&page=1&region=DE
