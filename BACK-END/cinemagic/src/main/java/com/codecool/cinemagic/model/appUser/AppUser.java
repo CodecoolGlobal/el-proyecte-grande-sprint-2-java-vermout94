@@ -1,10 +1,9 @@
 package com.codecool.cinemagic.model.appUser;
 
-
-//TODO: switch from jakarta -> javax, when dependencies are fixed - stay with jakarta? read up
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import lombok.*;
-import java.util.List;
 
 @Entity
 @Getter
@@ -25,9 +24,7 @@ public class AppUser {
     private String email;
     @NonNull
     private String password;
-
-    private List<String> favouriteMovies;
-    @Enumerated(EnumType.STRING)
-    private AppUserRole appUserRole;
-
+    /*Maybe change this to ID instead of String*/
+    @NonNull
+    private String favoriteMovie;
 }
