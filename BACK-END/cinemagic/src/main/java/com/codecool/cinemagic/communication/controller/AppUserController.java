@@ -28,7 +28,7 @@ public class AppUserController {
     @Autowired
     private AppUserRepository appUserRepository;
 
-    @PostMapping("/signup")
+    @PostMapping("signup")
     public AppUser signup(@RequestBody AppUser appUser) {
         return appUserRepository.save(appUser);
     }
