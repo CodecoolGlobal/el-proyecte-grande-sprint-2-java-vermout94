@@ -8,14 +8,18 @@ export default function SignupModal({onClose}) {
 
     async function handelSubmit(event) {
         event.preventDefault();
-        const formData = new FormData();
-        formData.append("username", username);
-        formData.append("email", email);
-        formData.append("password", password);
+        const formData = {
+            username: username,
+            email: email,
+            password: password,
+        }
         try {
-            const response = await fetch('/signup', {
+            const response = await fetch('/', {
                 method: 'POST',
-                body: formData,
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
             });
             const data = await response.json();
             console.log(data);
