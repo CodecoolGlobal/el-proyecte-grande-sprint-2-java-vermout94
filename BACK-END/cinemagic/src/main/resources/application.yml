@@ -11,3 +11,15 @@ api:
       most-popular: https://api.themoviedb.org/3/tv/popular?api_key={apiKey}&language=en-US&page=1&region=DE
     people:
       most-popular: https://api.themoviedb.org/3/person/popular?api_key={apiKey}&language=en-US&page=1&region=DE
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+

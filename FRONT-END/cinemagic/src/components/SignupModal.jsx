@@ -1,5 +1,9 @@
+/*react*/
 import React, {useState} from "react";
+/*react bootstrap*/
 import {Button, Form, Container, Modal} from "react-bootstrap";
+/*apiConstants.js*/
+import {SIGNUP_URL} from "../data/apiConstants";
 
 export default function SignupModal({onClose}) {
     const [username, setUsername] = useState("");
@@ -14,7 +18,7 @@ export default function SignupModal({onClose}) {
             password: password,
         }
         try {
-            const response = await fetch('/', {
+            const response = await fetch(SIGNUP_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -22,6 +26,7 @@ export default function SignupModal({onClose}) {
                 body: JSON.stringify(formData),
             });
             const data = await response.json();
+            /*TODO here is a console log*/
             console.log(data);
             onClose();
         } catch (error) {
@@ -38,7 +43,7 @@ export default function SignupModal({onClose}) {
                 </Button>
             </Modal.Header>
             <Modal.Body>
-                <Form onSubmit={handelSubmit}>
+                <Form>
                     <Form.Group className="mb-3" controlId="formBasicUsername">
                         <Form.Label>Username</Form.Label>
                         <Form.Control type="username"
@@ -66,7 +71,7 @@ export default function SignupModal({onClose}) {
                 <Button variant="secondary" onClick={onClose}>
                     Close
                 </Button>
-                <Button variant="info" onClick={onClose}>
+                <Button variant="info" onClick={handelSubmit}>
                     Signup
                 </Button>
             </Modal.Footer>
