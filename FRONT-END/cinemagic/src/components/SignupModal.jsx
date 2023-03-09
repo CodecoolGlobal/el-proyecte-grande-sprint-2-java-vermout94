@@ -1,5 +1,9 @@
+/*react*/
 import React, {useState} from "react";
+/*react bootstrap*/
 import {Button, Form, Container, Modal} from "react-bootstrap";
+/*apiConstants.js*/
+import {SIGNUP_URL} from "../data/apiConstants";
 
 export default function SignupModal({onClose}) {
     const [username, setUsername] = useState("");
@@ -8,16 +12,21 @@ export default function SignupModal({onClose}) {
 
     async function handelSubmit(event) {
         event.preventDefault();
-        const formData = new FormData();
-        formData.append("username", username);
-        formData.append("email", email);
-        formData.append("password", password);
+        const formData = {
+            username: username,
+            email: email,
+            password: password,
+        }
         try {
-            const response = await fetch('/signup', {
+            const response = await fetch(SIGNUP_URL, {
                 method: 'POST',
-                body: formData,
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
             });
             const data = await response.json();
+            /*TODO here is a console log*/
             console.log(data);
             onClose();
         } catch (error) {
@@ -34,7 +43,7 @@ export default function SignupModal({onClose}) {
                 </Button>
             </Modal.Header>
             <Modal.Body>
-                <Form onSubmit={handelSubmit}>
+                <Form>
                     <Form.Group className="mb-3" controlId="formBasicUsername">
                         <Form.Label>Username</Form.Label>
                         <Form.Control type="username"
@@ -62,7 +71,7 @@ export default function SignupModal({onClose}) {
                 <Button variant="secondary" onClick={onClose}>
                     Close
                 </Button>
-                <Button variant="info" onClick={onClose}>
+                <Button variant="info" onClick={handelSubmit}>
                     Signup
                 </Button>
             </Modal.Footer>
