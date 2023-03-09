@@ -18,3 +18,5 @@ export const BACKDROP_URL = "https://www.themoviedb.org/t/p/w1920_and_h800_multi
 
 /*database*/
 export const SIGNUP_URL = "http://localhost:8080/api/users/signup";
+
+export const LOGIN_URL = "http://localhost:8080/api/users/login";
