@@ -13,9 +13,10 @@ import TopRatedTv, {topRatedTvLoader} from "./pages/tv/top-rated/TopRatedTv";
 import People, {peopleLoader} from "./pages/People";
 import Home, {homeLoader} from "./pages/home/Home";
 import UpcomingMovies, {upcomingMoviesLoader} from "./pages/movie/upcoming/UpcomingMovies";
+import SignupModal from "./components/SignupModal";
+import LoginModal from "./components/LoginModal";
 /*css*/
 import './index.css'
-
 
 
 
@@ -63,6 +64,14 @@ const router = createBrowserRouter([
                 path: "/people",
                 element: <People/>,
                 loader: peopleLoader,
+            },
+            {
+                path: "/login",
+                element: <LoginModal/>,
+            },
+            {
+                path: "/signup",
+                element: <SignupModal/>,
             },
         ],
     },
