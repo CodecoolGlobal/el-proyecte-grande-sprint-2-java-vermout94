@@ -1,8 +1,8 @@
 package com.codecool.cinemagic.communication.controller;
 import com.codecool.cinemagic.model.AppUser;
 import com.codecool.cinemagic.repository.AppUserRepository;
+import com.codecool.cinemagic.service.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -12,11 +12,11 @@ public class AppUserController {
     @Autowired
     private AppUserRepository appUserRepository;
     @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private AppUserService appUserService;
+
     @PostMapping("signup")
     public AppUser signup(@RequestBody AppUser appUser) {
-        String encodedPassword = bCryptPasswordEncoder.encode(appUser.getPassword());
-        appUser.setPassword(encodedPassword);
+        appUserService.encodePassword(appUser);
         return appUserRepository.save(appUser);
     }
 }
