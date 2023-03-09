@@ -15,8 +15,6 @@ public class AppUser {
     @GeneratedValue
     private long id;
     @NonNull
-    private String username;
-    @NonNull
     private String email;
     @NonNull
     private String password;
