@@ -7,9 +7,7 @@ import MediaCard from "../components/dynamic/MediaCard";
 import {PEOPLE_URL} from "../data/apiConstants";
 /*helpers.js*/
 import {fetchHelper} from "../helpers";
-
-
-//TODO: new media component for people needed
+import PeopleOverview from "../components/PeopleOverview";
 
 
 export async function peopleLoader() {
@@ -20,7 +18,7 @@ export default function People() {
     const people = useLoaderData();
     return (
         <>
-            <MediaCard data={people}/>
+            <PeopleOverview data={people}/>
         </>
     );
 }

@@ -15,6 +15,7 @@ export const PEOPLE_URL = `${BACKEND_URL}/people/most-popular`;
 /* External APIs */
 export const POSTER_URL = "https://www.themoviedb.org/t/p/w220_and_h330_face";
 export const BACKDROP_URL = "https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces";
+export const PEOPLE_IMAGE_URL = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2";
 
 /*database*/
 export const SIGNUP_URL = "http://localhost:8080/api/users/signup";

@@ -6,7 +6,6 @@ import {Button, Form, Container, Modal} from "react-bootstrap";
 import {SIGNUP_URL} from "../data/apiConstants";
 
 export default function SignupModal({onClose}) {
-    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -44,13 +43,6 @@ export default function SignupModal({onClose}) {
             </Modal.Header>
             <Modal.Body>
                 <Form>
-                    <Form.Group className="mb-3" controlId="formBasicUsername">
-                        <Form.Label>Username</Form.Label>
-                        <Form.Control type="username"
-                                      placeholder="Enter username"
-                                      autoFocus value={username}
-                                      onChange={event => setUsername(event.target.value)}/>
-                    </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email"
