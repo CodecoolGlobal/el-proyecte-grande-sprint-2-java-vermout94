@@ -20,5 +20,9 @@ public class AppUserService {
         appUser.setPassword(passwordEncoder.encode(appUser.getPassword()));
         return appUserRepository.save(appUser);
     }
+
+    public boolean checkIfUserAlreadyExists(String email) {
+        return appUserRepository.existsByEmail(email);
+    }
 }
 
