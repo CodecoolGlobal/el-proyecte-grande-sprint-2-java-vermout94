@@ -3,8 +3,7 @@ import React from 'react';
 /*bootstrap*/
 import {Figure} from "react-bootstrap";
 /*apiConstants.js*/
-import {PEOPLE_URL, PEOPLE_IMAGE_URL} from "../data/apiConstants";
-/*css*/
+import {PEOPLE_IMAGE_URL} from "../data/apiConstants";
 
 
 export default function PeopleOverview ({data}){
