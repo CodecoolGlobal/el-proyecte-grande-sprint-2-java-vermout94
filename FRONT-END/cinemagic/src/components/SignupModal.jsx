@@ -9,10 +9,9 @@ export default function SignupModal({onClose}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    async function handelSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
         const formData = {
-            username: username,
             email: email,
             password: password,
         }
@@ -25,11 +24,13 @@ export default function SignupModal({onClose}) {
                 body: JSON.stringify(formData),
             });
             const data = await response.json();
-            /*TODO here is a console log*/
-            console.log(data);
             onClose();
         } catch (error) {
-            console.error(error);
+            if (error.response && error.response.status === 400) {
+                alert("Email already exists");
+            } else {
+                console.error(error);
+            }
         }
     }
 
@@ -63,7 +64,7 @@ export default function SignupModal({onClose}) {
                 <Button variant="secondary" onClick={onClose}>
                     Close
                 </Button>
-                <Button variant="info" onClick={handelSubmit}>
+                <Button variant="info" onClick={handleSubmit}>
                     Signup
                 </Button>
             </Modal.Footer>

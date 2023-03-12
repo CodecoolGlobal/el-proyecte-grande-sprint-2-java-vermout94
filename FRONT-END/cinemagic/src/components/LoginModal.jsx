@@ -10,7 +10,7 @@ export default function LoginModal({onClose}) {
     const [password, setPassword] = useState("");
 
 
-    async function handelSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
         const formData = {
             email: email,
@@ -64,7 +64,7 @@ export default function LoginModal({onClose}) {
                 <Button variant="secondary" onClick={onClose}>
                     Close
                 </Button>
-                <Button variant="info" onClick={handelSubmit}>
+                <Button variant="info" onClick={handleSubmit}>
                     Login
                 </Button>
             </Modal.Footer>
