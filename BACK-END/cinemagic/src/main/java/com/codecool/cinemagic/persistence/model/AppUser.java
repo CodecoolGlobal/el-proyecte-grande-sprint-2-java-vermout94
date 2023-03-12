@@ -1,4 +1,4 @@
-package com.codecool.cinemagic.model;
+package com.codecool.cinemagic.persistence.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
