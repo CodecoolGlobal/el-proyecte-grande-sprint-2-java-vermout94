@@ -1,19 +1,17 @@
 /*react*/
 import React, {useState} from "react";
 /*react bootstrap*/
-import {Button, Form, Container, Modal} from "react-bootstrap";
+import {Button, Form, Modal} from "react-bootstrap";
 /*apiConstants.js*/
 import {SIGNUP_URL} from "../data/apiConstants";
 
 export default function SignupModal({onClose}) {
-    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    async function handelSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
         const formData = {
-            username: username,
             email: email,
             password: password,
         }
@@ -26,11 +24,13 @@ export default function SignupModal({onClose}) {
                 body: JSON.stringify(formData),
             });
             const data = await response.json();
-            /*TODO here is a console log*/
-            console.log(data);
             onClose();
         } catch (error) {
-            console.error(error);
+            if (error.response && error.response.status === 400) {
+                alert("Email already exists");
+            } else {
+                console.error(error);
+            }
         }
     }
 
@@ -44,13 +44,6 @@ export default function SignupModal({onClose}) {
             </Modal.Header>
             <Modal.Body>
                 <Form>
-                    <Form.Group className="mb-3" controlId="formBasicUsername">
-                        <Form.Label>Username</Form.Label>
-                        <Form.Control type="username"
-                                      placeholder="Enter username"
-                                      autoFocus value={username}
-                                      onChange={event => setUsername(event.target.value)}/>
-                    </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email"
@@ -71,7 +64,7 @@ export default function SignupModal({onClose}) {
                 <Button variant="secondary" onClick={onClose}>
                     Close
                 </Button>
-                <Button variant="info" onClick={handelSubmit}>
+                <Button variant="info" onClick={handleSubmit}>
                     Signup
                 </Button>
             </Modal.Footer>

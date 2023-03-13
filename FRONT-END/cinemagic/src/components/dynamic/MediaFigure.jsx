@@ -42,7 +42,7 @@ const MediaFigure = ({data}) => {
                                         {media.release_date > new Date().toISOString().split('T')[0] ? "" : `Rating: ${media.vote_average}`}
                                     </p>
                                     <p>
-                                        Release Date: {media.release_date}
+                                        Release Date: {media.release_date ? media.release_date : media.first_air_date}
                                     </p>
                                     <p>
                                         Overview:
