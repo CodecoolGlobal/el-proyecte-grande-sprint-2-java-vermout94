@@ -6,12 +6,15 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import {NavLink} from "react-router-dom";
+/*components*/
 import LoginModal from "./LoginModal";
 import SignupModal from "./SignupModal";
 /*logo*/
 import logo from '../assets/navbar-logo.png';
 /*css*/
 import '../index.css';
+
 
 export default function Header() {
     const [showLoginModal, setShowLoginModal] = useState(false);
@@ -31,16 +34,16 @@ export default function Header() {
                             navbarScroll
                         >
                             <NavDropdown title="Movies" id="movies-dropdown" renderMenuOnMount={true}>
-                                <NavDropdown.Item href="/movies/latest">Latest</NavDropdown.Item>
-                                <NavDropdown.Item href="/movies/most-popular">Most Popular</NavDropdown.Item>
-                                <NavDropdown.Item href="/movies/top-rated">Top rated</NavDropdown.Item>
-                                <NavDropdown.Item href="/movies/upcoming">Upcoming</NavDropdown.Item>
+                                <NavLink to={"/movies/latest"}>Latest</NavLink>
+                                <NavLink to={"/movies/most-popular"}>Most Popular</NavLink>
+                                <NavLink to={"/movies/top-rated"}>Top rated</NavLink>
+                                <NavLink to={"/movies/upcoming"}>Upcoming</NavLink>
                             </NavDropdown>
                             <NavDropdown title="TV shows" id="tv-dropdown" renderMenuOnMount={true}>
-                                <NavDropdown.Item href="/tv/most-popular">Most Popular</NavDropdown.Item>
-                                <NavDropdown.Item href="/tv/top-rated">Top rated</NavDropdown.Item>
+                                <NavLink to={"/tv/most-popular"}>Most Popular</NavLink>
+                                <NavLink to={"/tv/top-rated"}>Top rated</NavLink>
                             </NavDropdown>
-                            <Nav.Link href="/people">People</Nav.Link>
+                            <NavLink to={"/people"}>People</NavLink>
                         </Nav>
                     </Navbar.Collapse>
                 </div>

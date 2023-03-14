@@ -65,17 +65,17 @@ const router = createBrowserRouter([
                 element: <People/>,
                 loader: peopleLoader,
             },
-            {
-                path: "/login",
-                element: <LoginModal/>,
-            },
-            {
-                path: "/signup",
-                element: <SignupModal/>,
-            },
+
         ],
     },
-
+    {
+        path: "/login",
+        element: <LoginModal/>,
+    },
+    {
+        path: "/signup",
+        element: <SignupModal/>,
+    },
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
