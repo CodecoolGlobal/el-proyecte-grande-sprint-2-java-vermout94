@@ -1,16 +1,39 @@
 /*react*/
 import React, {useState} from "react";
 /*react bootstrap*/
-import {Button, Form, Modal} from "react-bootstrap";
-/*apiConstants.js*/
+import {Button, Form, Modal} from 'react-bootstrap';
+/*apiConstants*/
 import {SIGNUP_URL} from "../../data/apiConstants";
-/*TODO create composable signup-login-modal instead of Login and Signup*/
+
 export default function SignupModal({onClose}) {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState('');
+    const [emailError, setEmailError] = useState('');
+    const [password, setPassword] = useState('');
+
+    function handleEmailChange(event) {
+        const emailValue = event.target.value;
+        setEmail(emailValue);
+
+        // Regex pattern to validate email format
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailPattern.test(emailValue)) {
+            setEmailError('Please enter a valid email address.');
+        } else {
+            setEmailError('');
+        }
+    }
 
     async function handleSubmit(event) {
         event.preventDefault();
+
+        // Validate email input
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            setEmailError('Please enter a valid email address.');
+            return;
+        }
+
         const formData = {
             email: email,
             password: password,
@@ -30,7 +53,6 @@ export default function SignupModal({onClose}) {
                 return;
             }
 
-            const data = await response.json();
             onClose();
         } catch (error) {
             if (error.response && error.response.status === 400) {
@@ -55,8 +77,13 @@ export default function SignupModal({onClose}) {
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email"
                                       placeholder="Enter email"
-                                      autoFocus value={email}
-                                      onChange={event => setEmail(event.target.value)}/>
+                                      autoFocus
+                                      value={email}
+                                      onChange={handleEmailChange}
+                                      isInvalid={!!emailError}/>
+                        <Form.Control.Feedback type="invalid">
+                            {emailError}
+                        </Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
