@@ -34,16 +34,18 @@ export default function Header() {
                             navbarScroll
                         >
                             <NavDropdown title="Movies" id="movies-dropdown" renderMenuOnMount={true}>
-                                <Nav.Link as={NavLink} to="/movies/latest">Latest</Nav.Link>
-                                <Nav.Link as={NavLink} to="/movies/most-popular">Most Popular</Nav.Link>
-                                <Nav.Link as={NavLink} to="/movies/top-rated">Top rated</Nav.Link>
-                                <Nav.Link as={NavLink} to="/movies/upcoming">Upcoming</Nav.Link>
+                                <NavDropdown.Item as={NavLink} to="/movies/latest">Latest</NavDropdown.Item>
+                                <NavDropdown.Item as={NavLink} to="/movies/most-popular">Most Popular</NavDropdown.Item>
+                                <NavDropdown.Item as={NavLink} to="/movies/top-rated">Top rated</NavDropdown.Item>
+                                <NavDropdown.Item as={NavLink} to="/movies/upcoming">Upcoming</NavDropdown.Item>
                             </NavDropdown>
                             <NavDropdown title="TV shows" id="tv-dropdown" renderMenuOnMount={true}>
-                                <NavLink to={"/tv/most-popular"}>Most Popular</NavLink>
-                                <NavLink to={"/tv/top-rated"}>Top rated</NavLink>
+                                <NavDropdown.Item as={NavLink} to={"/tv/most-popular"}>Most Popular</NavDropdown.Item>
+                                <NavDropdown.Item as={NavLink} to={"/tv/top-rated"}>Top rated</NavDropdown.Item>
                             </NavDropdown>
-                            <Nav.Link as={NavLink} to={"/people"}>People</Nav.Link>
+                            <NavDropdown title="People" id="people-dropdown" renderMenuOnMount={true}>
+                                <NavDropdown.Item as={NavLink} to={"/people"}>Most Popular</NavDropdown.Item>
+                            </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>
                 </div>
