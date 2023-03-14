@@ -1,0 +1,26 @@
+.media-figure-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.media-figure-container > figure {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    border: solid white 2px;
+    border-radius: 10px;
+}
+
+.media-figure-container > figure > img {
+    margin-right: 20px;
+    border-radius: 10px;
+    margin-bottom: 0;
+
+}
+
+.media-figure-container > figure > figcaption {
+    color: white;
+    max-width: 500px;
+    text-align: left;
+}

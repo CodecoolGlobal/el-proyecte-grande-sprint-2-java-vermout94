@@ -5,7 +5,9 @@ import {Figure} from "react-bootstrap";
 /*apiConstants.js*/
 import {POSTER_URL} from "../../data/apiConstants";
 import {BACKDROP_URL} from "../../data/apiConstants";
-/*TODO add own css file to each component to remove inline styling where possible*/
+/*css*/
+import "./media-figure.css"
+
 const MediaFigure = ({data}) => {
     return (
         <div>

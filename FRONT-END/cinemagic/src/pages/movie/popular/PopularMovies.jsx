@@ -2,7 +2,7 @@
 import React from 'react';
 import {useLoaderData} from "react-router-dom";
 /*components*/
-import MediaCard from "../../../components/dynamic/MediaCard";
+import MediaCard from "../../../components/media-card/MediaCard";
 /*helpers.js*/
 import {fetchHelper} from "../../../helpers";
 /*apiConstants.js*/

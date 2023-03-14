@@ -1,0 +1,12 @@
+.media-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 70rem; /* Set a maximum width for the container */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+.media-card-container .card {
+    margin-bottom: 1rem; /* Add some space between each card */
+    flex-basis: calc(20% - 1rem); /* Set the width of each card to 20% minus the margin */
+}

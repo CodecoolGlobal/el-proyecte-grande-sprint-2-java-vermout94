@@ -3,8 +3,8 @@ import React, {useState} from "react";
 /*react bootstrap*/
 import {Button, Form, Modal} from "react-bootstrap";
 /*apiConstants.js*/
-import {SIGNUP_URL} from "../data/apiConstants";
-
+import {SIGNUP_URL} from "../../data/apiConstants";
+/*TODO create composable signup-login-modal instead of Login and Signup*/
 export default function SignupModal({onClose}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");

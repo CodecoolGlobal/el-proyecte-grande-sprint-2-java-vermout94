@@ -8,12 +8,12 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import {NavLink} from "react-router-dom";
 /*components*/
-import LoginModal from "./LoginModal";
-import SignupModal from "./SignupModal";
+import LoginModal from "../signup-login-modal/LoginModal";
+import SignupModal from "../signup-login-modal/SignupModal";
 /*logo*/
-import logo from '../assets/navbar-logo.png';
+import logo from '../../assets/navbar-logo.png';
 /*css*/
-import '../index.css';
+import "./header.css";
 
 
 export default function Header() {
@@ -34,16 +34,16 @@ export default function Header() {
                             navbarScroll
                         >
                             <NavDropdown title="Movies" id="movies-dropdown" renderMenuOnMount={true}>
-                                <NavLink to={"/movies/latest"}>Latest</NavLink>
-                                <NavLink to={"/movies/most-popular"}>Most Popular</NavLink>
-                                <NavLink to={"/movies/top-rated"}>Top rated</NavLink>
-                                <NavLink to={"/movies/upcoming"}>Upcoming</NavLink>
+                                <Nav.Link as={NavLink} to="/movies/latest">Latest</Nav.Link>
+                                <Nav.Link as={NavLink} to="/movies/most-popular">Most Popular</Nav.Link>
+                                <Nav.Link as={NavLink} to="/movies/top-rated">Top rated</Nav.Link>
+                                <Nav.Link as={NavLink} to="/movies/upcoming">Upcoming</Nav.Link>
                             </NavDropdown>
                             <NavDropdown title="TV shows" id="tv-dropdown" renderMenuOnMount={true}>
                                 <NavLink to={"/tv/most-popular"}>Most Popular</NavLink>
                                 <NavLink to={"/tv/top-rated"}>Top rated</NavLink>
                             </NavDropdown>
-                            <NavLink to={"/people"}>People</NavLink>
+                            <Nav.Link as={NavLink} to={"/people"}>People</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </div>

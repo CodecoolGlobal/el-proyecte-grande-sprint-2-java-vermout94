@@ -3,8 +3,8 @@ import React from 'react';
 import {useState} from "react";
 import {useLoaderData} from "react-router-dom";
 /*components*/
-import MediaCarousel from "../../components/dynamic/MediaCarousel";
-import UserDashboard from "../../components/UserDashboard";
+import MediaCarousel from "../../components/media-carousel/MediaCarousel";
+import UserDashboard from "../../components/user-dashboard/UserDashboard";
 /*apiConstants.js*/
 import {UPCOMING_MOVIES_URL} from "../../data/apiConstants";
 /*helpers.js*/

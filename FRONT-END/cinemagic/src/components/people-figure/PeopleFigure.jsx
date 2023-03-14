@@ -3,10 +3,9 @@ import React from 'react';
 /*bootstrap*/
 import {Figure} from "react-bootstrap";
 /*apiConstants.js*/
-import {PEOPLE_IMAGE_URL} from "../data/apiConstants";
+import {PEOPLE_IMAGE_URL} from "../../data/apiConstants";
 
-
-export default function PeopleOverview ({data}){
+export default function PeopleFigure({data}) {
     return (
         <div>
             <div className="media-figure-container">
@@ -22,11 +21,11 @@ export default function PeopleOverview ({data}){
                             <Figure key={people.id} style={figureStyle}>
                                 <Figure.Image src={`${PEOPLE_IMAGE_URL}/${people.profile_path}`} alt="Profile"/>
                                 <Figure.Caption>
-                                    <h4 style={{ textAlign: 'center'}}>
+                                    <h4 style={{textAlign: 'center'}}>
                                         <br></br>
                                         {people.name}
                                     </h4>
-                                    <p style={{ padding: '1rem'}}>
+                                    <p style={{padding: '1rem'}}>
                                         <b>Known For:</b>
                                         <br></br>
                                         {people.known_for.map(movie => {

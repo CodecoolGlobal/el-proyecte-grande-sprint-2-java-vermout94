@@ -1,0 +1,53 @@
+.navbar {
+    padding-bottom: 20px;
+}
+.nav-link {
+    color: white !important;
+}
+
+.nav-link:active{
+    color: #b6adfc !important;
+}
+
+.navbar-brand {
+    color: white !important;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    background-color: white !important;
+
+}
+
+.dropdown-toggle::after {
+    display:none;
+}
+
+.nav-item.dropdown .dropdown-item:hover {
+    background-color: #b6adfc;
+}
+
+.btn-outline-info {
+    color: black !important;
+    background-color: white !important;
+    border: solid black 1px !important;
+}
+
+.btn-outline-info:hover {
+    background-color: #b6adfc !important;
+}
+/* restyling the button to look like an X */
+/*.btn-close::before {
+    content: "\2716";
+}*/
+
+.btn-info {
+    background-color: #b6adfc !important;
+    border: solid #b6adfc 1px !important;
+}
+
+/*TODO:     Make the outline disappear when the button is clicked*/
+/*.btn-outline-info:focus {
+    outline: none !important;
+    box-shadow: #b6adfc !important;
+}*/

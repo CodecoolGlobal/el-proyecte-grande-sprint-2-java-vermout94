@@ -13,8 +13,8 @@ import TopRatedTv, {topRatedTvLoader} from "./pages/tv/top-rated/TopRatedTv";
 import People, {peopleLoader} from "./pages/People";
 import Home, {homeLoader} from "./pages/home/Home";
 import UpcomingMovies, {upcomingMoviesLoader} from "./pages/movie/upcoming/UpcomingMovies";
-import SignupModal from "./components/SignupModal";
-import LoginModal from "./components/LoginModal";
+import SignupModal from "./components/signup-login-modal/SignupModal";
+import LoginModal from "./components/signup-login-modal/LoginModal";
 /*css*/
 import './index.css'
 

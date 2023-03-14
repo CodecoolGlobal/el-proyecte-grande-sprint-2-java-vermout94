@@ -2,7 +2,7 @@
 import React from 'react';
 import {useLoaderData} from "react-router-dom";
 /*components*/
-import MediaFigure from "../../../components/dynamic/MediaFigure";
+import MediaFigure from "../../../components/media-figure/MediaFigure";
 /*helpers.js*/
 import {fetchHelper} from "../../../helpers";
 /*apiConstants.js*/

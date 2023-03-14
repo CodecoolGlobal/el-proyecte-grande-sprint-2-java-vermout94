@@ -5,6 +5,8 @@ import {Carousel} from 'react-bootstrap';
 /*apiConstants.js*/
 import {POSTER_URL} from "../../data/apiConstants";
 import {BACKDROP_URL} from "../../data/apiConstants";
+/*css*/
+import "./media-carousel.css"
 
 function MediaCarousel({data}) {
     return (

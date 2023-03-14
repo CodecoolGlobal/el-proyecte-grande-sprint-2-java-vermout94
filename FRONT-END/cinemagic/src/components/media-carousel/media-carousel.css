@@ -1,0 +1,22 @@
+.media-backdrop{
+    width: 100%;
+    filter: brightness(50%);
+}
+
+.media-title {
+    padding-top: 35px;
+}
+
+.carousel-caption {
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.carousel-caption img {
+    border: solid white 1px;
+    border-radius: 10px;
+}

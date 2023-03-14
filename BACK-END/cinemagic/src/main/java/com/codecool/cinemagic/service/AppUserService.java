@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AppUserService {
-    /*TODO Remove field injection from other classes*/
     private final AppUserRepository appUserRepository;
     private final PasswordEncoder passwordEncoder;
 
