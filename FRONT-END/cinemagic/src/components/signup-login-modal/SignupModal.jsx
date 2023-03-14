@@ -23,6 +23,13 @@ export default function SignupModal({onClose}) {
                 },
                 body: JSON.stringify(formData),
             });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                alert(errorData.message || "Something went wrong");
+                return;
+            }
+
             const data = await response.json();
             onClose();
         } catch (error) {
