@@ -40,7 +40,8 @@ const MediaCard = ({data}) => {
                         </Card>
                     ))}
             </div>
-            {selectedMedia &&
+            {
+                selectedMedia &&
                 <MediaModal
                     selectedMedia={selectedMedia}
                     onCloseModal={handleCloseModal}
