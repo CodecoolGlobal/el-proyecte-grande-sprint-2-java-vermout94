@@ -1,14 +1,25 @@
 /*react*/
-import React from 'react';
+import React, {useState} from 'react';
 /*bootstrap*/
 import {Figure} from "react-bootstrap";
 /*apiConstants.js*/
-import {POSTER_URL} from "../../data/apiConstants";
-import {BACKDROP_URL} from "../../data/apiConstants";
+import {BACKDROP_URL, POSTER_URL} from "../../data/apiConstants";
 /*css*/
 import "./media-figure.css"
+import MediaModal from "../media-modal/MediaModal";
 
 const MediaFigure = ({data}) => {
+    /*TODO find a solution for the repeating code snippets of the MediaModal*/
+    const [selectedMedia, setSelectedMedia] = useState(null);
+
+    const handleOpenModal = (media) => {
+        setSelectedMedia(media);
+    };
+
+    const handleCloseModal = () => {
+        setSelectedMedia(null);
+    };
+
     return (
         <div>
             <div className="media-figure-container">
@@ -32,7 +43,10 @@ const MediaFigure = ({data}) => {
                             backgroundRepeat: 'no-repeat'
                         };
                         return (
-                            <Figure key={media.id} style={figureStyle}>
+                            <Figure
+                                key={media.id} style={figureStyle}
+                                onClick={() => handleOpenModal(media)}
+                            >
                                 <div style={figureBackgroundStyle}></div>
                                 <Figure.Image src={`${POSTER_URL}/${media.poster_path}`}/>
                                 <Figure.Caption>
@@ -55,6 +69,13 @@ const MediaFigure = ({data}) => {
                             </Figure>
                         );
                     })}
+                {
+                    selectedMedia &&
+                    <MediaModal
+                        selectedMedia={selectedMedia}
+                        onCloseModal={handleCloseModal}
+                    />
+                }
             </div>
         </div>
     );
