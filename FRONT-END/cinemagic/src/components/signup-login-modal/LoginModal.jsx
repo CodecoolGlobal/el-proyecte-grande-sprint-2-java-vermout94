@@ -24,9 +24,6 @@ export default function LoginModal({onClose}) {
                 },
                 body: JSON.stringify(formData),
             });
-            const data = await response.json();
-            /*TODO here is a console log*/
-            console.log(data);
             onClose();
         } catch (error) {
             console.error(error);

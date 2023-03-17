@@ -5,8 +5,8 @@ import {useLoaderData} from "react-router-dom";
 import MediaCard from "../../../components/media-card/MediaCard";
 /*apiConstants.js*/
 import {LATEST_MOVIES_URL} from "../../../data/apiConstants";
-/*helpers.js*/
-import {fetchHelper} from "../../../helpers";
+/*apiHelpers.js*/
+import {fetchHelper} from "../../../apiHelpers";
 
 export async function latestMoviesLoader() {
     return await fetchHelper(LATEST_MOVIES_URL);

@@ -23,5 +23,11 @@ public class AppUserService {
     public boolean checkIfUserAlreadyExists(String email) {
         return appUserRepository.existsByEmail(email);
     }
+
+    public void addFavoriteMovie(long userId, long movieId) {
+        AppUser appUser = appUserRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found."));
+        appUser.getFavoriteMovieIds().add(movieId);
+        appUserRepository.save(appUser);
+    }
 }
 

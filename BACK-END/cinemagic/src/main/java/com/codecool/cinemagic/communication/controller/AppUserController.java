@@ -23,4 +23,9 @@ public class AppUserController {
         }
         return appUserService.saveAppUser(appUser);
     }
+
+    @PostMapping("{userId}/favorite-movies/{movieId}")
+    public void addFavoriteMovie(@PathVariable long userId, @PathVariable long movieId) {
+        appUserService.addFavoriteMovie(userId, movieId);
+    }
 }

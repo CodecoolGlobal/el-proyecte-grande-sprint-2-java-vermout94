@@ -1,14 +1,13 @@
 /*react*/
-import React from 'react';
-import {useState} from "react";
+import React, {useState} from 'react';
 import {useLoaderData} from "react-router-dom";
 /*components*/
 import MediaCarousel from "../../components/media-carousel/MediaCarousel";
 import UserDashboard from "../../components/user-dashboard/UserDashboard";
 /*apiConstants.js*/
 import {UPCOMING_MOVIES_URL} from "../../data/apiConstants";
-/*helpers.js*/
-import {fetchHelper} from "../../helpers";
+/*apiHelpers.js*/
+import {fetchHelper} from "../../apiHelpers";
 
 
 export async function homeLoader() {

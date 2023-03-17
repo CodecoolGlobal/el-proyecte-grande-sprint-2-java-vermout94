@@ -3,8 +3,8 @@ import React from 'react';
 import {useLoaderData} from "react-router-dom";
 /*components*/
 import MediaCard from "../../../components/media-card/MediaCard";
-/*helpers.js*/
-import {fetchHelper} from "../../../helpers";
+/*apiHelpers.js*/
+import {fetchHelper} from "../../../apiHelpers";
 /*apiConstants.js*/
 import {POPULAR_MOVIES_URL} from "../../../data/apiConstants";
 

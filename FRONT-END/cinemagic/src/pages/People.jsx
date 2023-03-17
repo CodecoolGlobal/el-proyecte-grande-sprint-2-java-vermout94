@@ -4,8 +4,8 @@ import {useLoaderData} from "react-router-dom";
 /*components*/
 /*apiConstants.js*/
 import {PEOPLE_URL} from "../data/apiConstants";
-/*helpers.js*/
-import {fetchHelper} from "../helpers";
+/*apiHelpers.js*/
+import {fetchHelper} from "../apiHelpers";
 import PeopleFigure from "../components/people-figure/PeopleFigure";
 
 
