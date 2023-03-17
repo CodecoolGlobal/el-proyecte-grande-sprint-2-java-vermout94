@@ -16,7 +16,7 @@ const MediaModal = ({selectedMedia, onCloseModal}) => {
 
     return (
         <div>
-            <Modal show={showModal} onHide={handleCloseModal}>
+            <Modal centered show={showModal} onHide={handleCloseModal}>
                 <Modal.Header closeButton>
                     <Modal.Title>{selectedMedia.title ? selectedMedia.title : selectedMedia.name}</Modal.Title>
                 </Modal.Header>

@@ -64,7 +64,7 @@ export default function SignupModal({onClose}) {
     }
 
     return (
-        <Modal show={true} onHide={onClose}>
+        <Modal centered show={true} onHide={onClose}>
             <Modal.Header>
                 <Modal.Title>Signup</Modal.Title>
                 <Button variant="link" className="close" onClick={onClose}>

@@ -35,12 +35,12 @@ export default function LoginModal({onClose}) {
 
 
     return (
-        <Modal show={true} onHide={onClose}>
-             <Modal.Header>
+        <Modal centered show={true} onHide={onClose}>
+            <Modal.Header>
                 <Modal.Title>Login</Modal.Title>
-                 <Button variant="link" className="close" onClick={onClose}>
-                     <span aria-hidden="true">&times;</span>
-                 </Button>
+                <Button variant="link" className="close" onClick={onClose}>
+                    <span aria-hidden="true">&times;</span>
+                </Button>
             </Modal.Header>
             <Modal.Body>
                 <Form>

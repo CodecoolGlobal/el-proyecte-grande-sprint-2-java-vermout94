@@ -1,4 +1,4 @@
-.media-backdrop{
+.media-backdrop {
     width: 100%;
     filter: brightness(50%);
 }
@@ -17,6 +17,6 @@
 }
 
 .carousel-caption img {
-    border: solid white 1px;
+    border: solid #343a40 1px;
     border-radius: 10px;
 }
