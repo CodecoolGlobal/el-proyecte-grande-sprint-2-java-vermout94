@@ -50,10 +50,12 @@ export default function Header() {
                     </Navbar.Collapse>
                 </div>
                 <div className="ms-auto">
-                    <Button variant="outline-info" onClick={() => setShowLoginModal(true)}>
+                    <Button className={"login-signup-buttons"} variant="outline-dark"
+                            onClick={() => setShowLoginModal(true)}>
                         Login
                     </Button>
-                    <Button variant="outline-info" onClick={() => setShowSignupModal(true)}>
+                    <Button className={"login-signup-buttons"} variant="outline-dark"
+                            onClick={() => setShowSignupModal(true)}>
                         Sign Up
                     </Button>
                 </div>

@@ -2,16 +2,18 @@ import Modal from "react-bootstrap/Modal";
 import {POSTER_URL} from "../../data/apiConstants";
 import Button from "react-bootstrap/Button";
 import React, {useState} from 'react';
+import "../header/header.css"
 
 const MediaModal = ({selectedMedia, onCloseModal}) => {
     const [showModal, setShowModal] = useState(true);
+    const [isFavorite, setIsFavorite] = useState(false);
     const handleCloseModal = () => {
         setShowModal(false);
         onCloseModal();
     };
 
     const handleSetAsFavorite = () => {
-        // TODO: handle setting selectedMedia as favorite
+        setIsFavorite(!isFavorite);
     };
 
     return (
@@ -28,9 +30,9 @@ const MediaModal = ({selectedMedia, onCloseModal}) => {
                     <Button variant="secondary" onClick={handleCloseModal}>
                         Close
                     </Button>
-                    {/*        <Button variant="primary" onClick={handleSetAsFavorite}>
-                        Set as Favorite
-                    </Button>*/}
+                    <Button variant="info" onClick={handleSetAsFavorite}>
+                        {isFavorite ? "Remove from Favorites" : "Set as Favorite"}
+                    </Button>
                 </Modal.Footer>
             </Modal>
         </div>

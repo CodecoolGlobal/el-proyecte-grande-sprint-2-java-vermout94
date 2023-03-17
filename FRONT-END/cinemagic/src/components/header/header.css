@@ -34,7 +34,7 @@
 }
 
 .btn-outline-info:hover {
-    background-color: #b6adfc !important;
+    background-color: #af2efe !important;
 }
 
 /* restyling the button to look like an X */
@@ -43,8 +43,8 @@
 }*/
 
 .btn-info {
-    background-color: #b6adfc !important;
-    border: solid #b6adfc 1px !important;
+    background-color: #af2efe !important;
+    border: solid #af2efe 1px !important;
 }
 
 /*TODO:     Make the outline disappear when the button is clicked*/
@@ -52,3 +52,14 @@
     outline: none !important;
     box-shadow: #b6adfc !important;
 }*/
+
+.login-signup-buttons {
+    color: white;
+    border-color: transparent;
+}
+
+.login-signup-buttons:hover {
+    color: #fff;
+    background-color: #af2efe;
+    border-color: #af2efe;
+}
