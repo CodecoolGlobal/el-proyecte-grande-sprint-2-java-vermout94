@@ -14,14 +14,14 @@ public class AppUserController {
     private final AppUserService appUserService;
 
     @PostMapping("signup")
-    public AppUser signup(@RequestBody AppUser appUser) {
+    public void signup(@RequestBody AppUser appUser) {
         if (appUserService.checkIfUserAlreadyExists(appUser.getEmail())) {
             throw new ResponseStatusException(
                     HttpStatus.INTERNAL_SERVER_ERROR,
                     "A user with the mail " + appUser.getEmail() + " already exists!"
             );
         }
-        return appUserService.saveAppUser(appUser);
+        appUserService.saveAppUser(appUser);
     }
 
     @PostMapping("{userId}/favorite-movies/{movieId}")
