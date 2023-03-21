@@ -7,7 +7,7 @@ export const fetchHelper = async (url) => {
 }
 
 export async function saveFavoriteMovie(userId, movieId) {
-    const response = await fetch(`${BACKEND_URL}/api/users/${userId}/favorite-movies/${movieId}`, {
+    const response = await fetch(`${BACKEND_URL}/api/authentication/${userId}/favorite-movies/${movieId}`, {
         method: "POST",
     });
 

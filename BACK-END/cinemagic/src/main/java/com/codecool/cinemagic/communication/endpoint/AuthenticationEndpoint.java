@@ -18,7 +18,7 @@ public class AuthenticationEndpoint {
     private final AppUserService appUserService;
 
     @PostMapping("signup")
-    public AppUser signup(@RequestBody @Validated AppUser appUser) {
+    public void signup(@RequestBody @Validated AppUser appUser) {
         if (appUserService.checkIfUserAlreadyExists(appUser.getEmail())) {
             throw new ResponseStatusException(
                     HttpStatus.INTERNAL_SERVER_ERROR,
