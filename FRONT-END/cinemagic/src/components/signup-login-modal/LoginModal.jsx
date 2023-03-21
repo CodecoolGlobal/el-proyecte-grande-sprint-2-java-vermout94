@@ -4,6 +4,7 @@ import React, {useState} from "react";
 import {Button, Form, Modal} from "react-bootstrap";
 /*apiConstants.js*/
 import {LOGIN_URL} from "../../data/apiConstants";
+/*SignUpModal.jsx*/
 
 export default function LoginModal({onClose}) {
     const [email, setEmail] = useState("");

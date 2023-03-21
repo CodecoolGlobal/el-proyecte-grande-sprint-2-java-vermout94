@@ -9,6 +9,12 @@ export default function SignupModal({onClose}) {
     const [email, setEmail] = useState('');
     const [emailError, setEmailError] = useState('');
     const [password, setPassword] = useState('');
+    const [currentAppUser, setCurrentAppUser] = useState("");
+
+    /*   export function loginCurrentUser(AppUser) {
+           setCurrentAppUser(AppUser.id);
+           console.log(currentAppUser);
+       }*/
 
     function handleEmailChange(event) {
         const emailValue = event.target.value;
