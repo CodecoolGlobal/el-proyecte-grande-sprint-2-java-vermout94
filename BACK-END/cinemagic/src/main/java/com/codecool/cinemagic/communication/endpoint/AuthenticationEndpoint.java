@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 @RestController
-@CrossOrigin
 @RequestMapping("api/authentication")
 @RequiredArgsConstructor
 public class AuthenticationEndpoint {
@@ -35,6 +34,7 @@ public class AuthenticationEndpoint {
 
     @PostMapping("login")
     public String login(Authentication authentication) {
+        System.out.println("User logged in: " + authentication.getName());
         return authenticationService.login(authentication);
     }
 }

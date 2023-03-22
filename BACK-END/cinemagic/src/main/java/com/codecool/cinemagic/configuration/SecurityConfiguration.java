@@ -44,12 +44,15 @@ public class SecurityConfiguration {
         return http.csrf().disable()
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(authorization -> {
-                    //authorization.requestMatchers("/api/authentication/signup").permitAll();
+                    authorization.requestMatchers("/api/authentication/login").authenticated();
+                    authorization.requestMatchers("/h2-console/**").permitAll();
                     authorization.anyRequest().permitAll();
                 })
                 .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .httpBasic(Customizer.withDefaults()).build();
+                .httpBasic(Customizer.withDefaults())
+                .headers().frameOptions().disable()
+                .and().build();
     }
 
     @Bean

@@ -14,7 +14,7 @@ export default function LoginModal({onClose}) {
     async function handleSubmit(event) {
         event.preventDefault();
         const formData = {
-            email: email,
+            username: email,
             password: password,
         }
         try {
