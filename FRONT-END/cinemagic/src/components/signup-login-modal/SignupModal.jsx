@@ -96,7 +96,8 @@ export default function SignupModal({onClose}) {
                         <Form.Control type="password"
                                       placeholder="Password"
                                       value={password}
-                                      onChange={event => setPassword(event.target.value)}/>
+                                      onChange={event => setPassword(event.target.value)}
+                                      autoComplete="current-password"/>
                     </Form.Group>
                 </Form>
             </Modal.Body>

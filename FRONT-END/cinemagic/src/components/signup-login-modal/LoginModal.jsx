@@ -5,27 +5,36 @@ import {Button, Form, Modal} from "react-bootstrap";
 /*apiConstants.js*/
 import {LOGIN_URL} from "../../data/apiConstants";
 /*SignUpModal.jsx*/
+import {Buffer} from "buffer";
+import {useNavigate} from "react-router-dom";
 
-export default function LoginModal({onClose}) {
+export default function LoginModal({onClose, onSuccessfulLogin}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
 
-    async function handleSubmit(event) {
+    async function handleLogin() {
         event.preventDefault();
-        const formData = {
-            username: email,
-            password: password,
-        }
+        const uri = LOGIN_URL;
+        const authentication = Buffer.from(email + ":" + password).toString("base64");
+        const headers = new Headers();
+        headers.set("Authorization", "Basic " + authentication);
         try {
-            const response = await fetch(LOGIN_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
+            const response = await fetch(uri, {
+                method: "POST",
+                headers: headers,
             });
-            onClose();
+            const token = await response.text();
+            localStorage.setItem('token', token);
+
+            if (token) {
+                navigate('/UserDashboard');
+                console.log
+                onClose();
+            } else {
+                alert('Wrong username or password, try again!');
+            }
         } catch (error) {
             console.error(error);
         }
@@ -54,7 +63,8 @@ export default function LoginModal({onClose}) {
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" placeholder="Password"
                                       value={password}
-                                      onChange={event => setPassword(event.target.value)}/>
+                                      onChange={event => setPassword(event.target.value)}
+                                      autoComplete="current-password"/>
                     </Form.Group>
                 </Form>
             </Modal.Body>
@@ -62,7 +72,7 @@ export default function LoginModal({onClose}) {
                 <Button variant="secondary" onClick={onClose}>
                     Close
                 </Button>
-                <Button variant="info" onClick={handleSubmit}>
+                <Button variant="info" onClick={handleLogin}>
                     Login
                 </Button>
             </Modal.Footer>

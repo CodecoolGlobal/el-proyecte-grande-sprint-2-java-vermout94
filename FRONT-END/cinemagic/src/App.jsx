@@ -15,9 +15,9 @@ import Home, {homeLoader} from "./pages/home/Home";
 import UpcomingMovies, {upcomingMoviesLoader} from "./pages/movie/upcoming/UpcomingMovies";
 import SignupModal from "./components/signup-login-modal/SignupModal";
 import LoginModal from "./components/signup-login-modal/LoginModal";
+import UserDashboard from "./components/user-dashboard/UserDashboard";
 /*css*/
 import './index.css'
-
 
 
 const router = createBrowserRouter([
@@ -65,17 +65,22 @@ const router = createBrowserRouter([
                 element: <People/>,
                 loader: peopleLoader,
             },
+            {
+                path: "/login",
+                element: <LoginModal/>,
+            },
+            {
+                path: "/UserDashboard",
+                element: <UserDashboard/>
+            },
+            {
+                path: "/signup",
+                element: <SignupModal/>,
+            }
 
         ],
     },
-    {
-        path: "/login",
-        element: <LoginModal/>,
-    },
-    {
-        path: "/signup",
-        element: <SignupModal/>,
-    },
+
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
