@@ -2,6 +2,9 @@ import React, {useEffect, useState} from 'react';
 
 export default function UserDashboard() {
     const [email, setEmail] = useState('');
+    /*const [favoriteMovieIds, setFavoriteMovieIds] = useState([]);
+    todo this is only for the demo. We need to get the actual user id
+    const userId = 1;*/
 
     useEffect(() => {
         const storedEmail = localStorage.getItem('token');
@@ -10,13 +13,35 @@ export default function UserDashboard() {
         }
     }, []);
 
+    /*    useEffect(() => {
+            fetchFavoriteMovieIds();
+        }, []);
+
+        const fetchFavoriteMovieIds = async () => {
+            try {
+                const response = await fetch(`api/authentication/${userId}/favorite-movies`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch favorite movie IDs');
+                }
+                const data = await response.json();
+                setFavoriteMovieIds(data);
+            } catch (error) {
+                console.error('Error fetching favorite movie IDs:', error);
+            }
+        };*/
+
 
     return (
         <>
             <>
-                <p style={{color: 'white'}}>Welcome, {email}!</p>
-                <p style={{color: "white"}}>Your current favorite movies:</p>
-                <p style={{color: "white"}}>Our recommendations for you:</p>
+                <h2 style={{color: 'white'}}>Welcome, {email}!</h2>
+                <h2 style={{color: "white"}}>Your current favorite movies:</h2>
+                {/*      <ul>
+                    {favoriteMovieIds.map((movieId) => (
+                        <li key={movieId}>{movieId}</li>
+                    ))}
+                </ul>*/}
+                <h2 style={{color: "white"}}>Our recommendations for you:</h2>
             </>
         </>
     );

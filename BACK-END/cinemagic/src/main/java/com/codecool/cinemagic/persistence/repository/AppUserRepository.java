@@ -10,12 +10,13 @@ import java.util.Optional;
 
 
 import java.util.List;
+import java.util.Set;
 
 @Repository
 public interface AppUserRepository extends JpaRepository<AppUser, Long> {
     boolean existsByEmail(String email);
     Optional<AppUser> findByEmail(String email);
-/*    @Query("select favoriteMovieIds from AppUser where id = :appUserId")
-    List<Long> findAllFavoriteMovieIds(@Param("appUserId")Long appUserId);*/
+    @Query("select u.favoriteMovieIds from AppUser u where u.id = :userId")
+    Set<Long> findFavoriteMovieIdsByUserId(@Param("userId") Long userId);
 
 }

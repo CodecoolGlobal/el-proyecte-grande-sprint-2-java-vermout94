@@ -9,6 +9,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/authentication")
 @RequiredArgsConstructor
@@ -37,5 +39,10 @@ public class AuthenticationEndpoint {
         System.out.println("User logged in: " + authentication.getName());
         authenticationService.login(authentication);
         return authentication.getName();
+    }
+
+    @GetMapping("{userId}/favorite-movies")
+    public List<Long> getFavoriteMovies(@PathVariable long userId) {
+        return appUserService.getFavoriteMovieIds(userId);
     }
 }
