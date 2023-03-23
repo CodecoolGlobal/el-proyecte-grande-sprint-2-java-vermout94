@@ -35,6 +35,7 @@ public class AuthenticationEndpoint {
     @PostMapping("login")
     public String login(Authentication authentication) {
         System.out.println("User logged in: " + authentication.getName());
-        return authenticationService.login(authentication);
+        authenticationService.login(authentication);
+        return authentication.getName();
     }
 }

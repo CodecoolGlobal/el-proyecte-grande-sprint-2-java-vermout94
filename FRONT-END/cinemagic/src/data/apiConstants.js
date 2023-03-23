@@ -18,6 +18,7 @@ export const BACKDROP_URL = "https://www.themoviedb.org/t/p/w1920_and_h800_multi
 export const PEOPLE_IMAGE_URL = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2";
 
 /*database*/
+export const AUTHENTICATION_URL = "http://localhost:8080/api/authentication"
 export const SIGNUP_URL = "http://localhost:8080/api/authentication/signup";
 
 export const LOGIN_URL = "http://localhost:8080/api/authentication/login";

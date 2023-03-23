@@ -5,14 +5,14 @@ import {Button, Form, Modal} from "react-bootstrap";
 /*apiConstants.js*/
 import {LOGIN_URL} from "../../data/apiConstants";
 /*SignUpModal.jsx*/
+/*todo buffer macht probleme*/
 import {Buffer} from "buffer";
 import {useNavigate} from "react-router-dom";
 
-export default function LoginModal({onClose, onSuccessfulLogin}) {
+export default function LoginModal({onClose}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-
 
     async function handleLogin() {
         event.preventDefault();
@@ -26,11 +26,11 @@ export default function LoginModal({onClose, onSuccessfulLogin}) {
                 headers: headers,
             });
             const token = await response.text();
+            localStorage.clear();
             localStorage.setItem('token', token);
 
             if (token) {
                 navigate('/UserDashboard');
-                console.log
                 onClose();
             } else {
                 alert('Wrong username or password, try again!');
@@ -39,7 +39,6 @@ export default function LoginModal({onClose, onSuccessfulLogin}) {
             console.error(error);
         }
     }
-
 
     return (
         <Modal centered show={true} onHide={onClose}>
