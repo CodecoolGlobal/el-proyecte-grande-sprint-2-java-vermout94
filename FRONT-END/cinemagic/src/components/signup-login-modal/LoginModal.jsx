@@ -30,7 +30,6 @@ export default function LoginModal({onClose, onSuccessfulLogin}) {
 
             if (token) {
                 navigate('/UserDashboard');
-                console.log
                 onClose();
             } else {
                 alert('Wrong username or password, try again!');

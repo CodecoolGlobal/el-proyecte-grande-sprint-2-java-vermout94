@@ -5,9 +5,13 @@ import com.codecool.cinemagic.service.security.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("api/authentication")
@@ -15,6 +19,8 @@ import org.springframework.web.server.ResponseStatusException;
 public class AuthenticationEndpoint {
     private final AuthenticationService authenticationService;
     private final AppUserService appUserService;
+    private final UserDetailsService userDetailsService;
+    private AppUser appUser;
 
     @PostMapping("signup")
     public void signup(@RequestBody @Validated AppUser appUser) {

@@ -10,6 +10,7 @@ export default function SignupModal({onClose}) {
     const [emailError, setEmailError] = useState('');
     const [password, setPassword] = useState('');
     const [currentAppUser, setCurrentAppUser] = useState("");
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     /*   export function loginCurrentUser(AppUser) {
            setCurrentAppUser(AppUser.id);
@@ -58,8 +59,8 @@ export default function SignupModal({onClose}) {
                 alert(errorData.message || "Something went wrong");
                 return;
             }
-
             onClose();
+            setIsAuthenticated(true);
         } catch (error) {
             if (error.response && error.response.status === 400) {
                 alert("Email already exists");

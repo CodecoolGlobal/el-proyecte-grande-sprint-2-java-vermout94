@@ -1,5 +1,5 @@
 /*react*/
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 /*bootstrap*/
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -19,6 +19,22 @@ import "./header.css";
 export default function Header() {
     const [showLoginModal, setShowLoginModal] = useState(false);
     const [showSignupModal, setShowSignupModal] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    useEffect(() => {
+        const authToken = localStorage.getItem("token");
+        if (authToken) {
+            setIsAuthenticated(true);
+        } else {
+            setIsAuthenticated(false);
+        }
+    }, []);
+    function handleLogout() {
+        localStorage.removeItem("token");
+        setIsAuthenticated(false);
+    }
+
+
     return (
         <Navbar expand="lg">
             <Container fluid>
@@ -50,14 +66,24 @@ export default function Header() {
                     </Navbar.Collapse>
                 </div>
                 <div className="ms-auto">
-                    <Button className={"login-signup-buttons"} variant="outline-dark"
-                            onClick={() => setShowLoginModal(true)}>
-                        Login
-                    </Button>
-                    <Button className={"login-signup-buttons"} variant="outline-dark"
-                            onClick={() => setShowSignupModal(true)}>
-                        Sign Up
-                    </Button>
+                    {isAuthenticated ? (
+                        <Button className={"logout-button"} variant="outline-dark"
+                                onClick={handleLogout}>
+                            Logout
+                        </Button>
+                    ) : (
+                        <>
+                            <Button className={"login-signup-buttons"} variant="outline-dark"
+                                    onClick={() => setShowLoginModal(true)}>
+                                Login
+                            </Button>
+                            <Button className={"login-signup-buttons"} variant="outline-dark"
+                                    onClick={() => setShowSignupModal(true)}>
+                                Sign Up
+                            </Button>
+                        </>
+                    )
+                    }
                 </div>
                 {showLoginModal && <LoginModal onClose={() => setShowLoginModal(false)}/>}
                 {showSignupModal && <SignupModal onClose={() => setShowSignupModal(false)}/>}
