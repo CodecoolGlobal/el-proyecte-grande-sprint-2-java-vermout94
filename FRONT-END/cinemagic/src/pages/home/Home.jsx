@@ -119,7 +119,7 @@ export default function Home() {
                     setIsLoggedIn(true);
                 }
             } catch (error) {
-                console.error("Error with token: ",error);
+                console.error("Error with token:",error);
             }
         }
     }, []);
