@@ -8,7 +8,7 @@ import {LOGIN_URL} from "../../data/apiConstants";
 import {Buffer} from "buffer";
 import {useNavigate} from "react-router-dom";
 
-export default function LoginModal({onClose, onSuccessfulLogin}) {
+export default function LoginModal({onClose, onSuccessfulLogin, setLoginStatus}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
@@ -29,6 +29,7 @@ export default function LoginModal({onClose, onSuccessfulLogin}) {
             localStorage.setItem('token', token);
 
             if (token) {
+                setLoginStatus(true);
                 navigate('/UserDashboard');
                 onClose();
             } else {

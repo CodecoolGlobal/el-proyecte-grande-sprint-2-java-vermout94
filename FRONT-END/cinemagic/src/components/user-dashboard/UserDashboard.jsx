@@ -3,11 +3,16 @@ import {useState, useEffect} from 'react';
 import {useNavigate} from "react-router-dom";
 import {LOGIN_URL} from "../../data/apiConstants";
 
-export default function UserDashboard() {
+export default function UserDashboard({loginStatus, setLoginStatus}) {
     const [authenticated, setAuthenticated] = useState(false);
     const navigate = useNavigate();
+    useEffect(() => {
+        if (loginStatus === false) {
+            navigate('/');
+        }
+    },[]);
 
-  /*  async function checkAuthentication() {
+    /*async function checkAuthentication() {
         const token = localStorage.getItem("token");
         const uri = LOGIN_URL;
         if (token) {
@@ -32,10 +37,11 @@ export default function UserDashboard() {
 
     return (
         <>
-                <>
-                    <p style={{color: "white"}}>Your current favorite movies:</p>
-                    <p style={{color: "white"}}>Our recommendations for you:</p>
-                </>
+            {loginStatus && (
+            <>
+                <p style={{color: "white"}}>Your current favorite movies:</p>
+                <p style={{color: "white"}}>Our recommendations for you:</p>
+            </>)}
         </>
     );
 }

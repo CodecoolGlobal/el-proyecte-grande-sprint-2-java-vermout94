@@ -108,6 +108,7 @@ export default function Home() {
     const checkAuthentication = useCallback(async () => {
         const token = localStorage.getItem('token');
         const uri = LOGIN_URL;
+        console.log("CHECK");
         if (token) {
             try {
                 const response = await fetch(uri, {
@@ -116,6 +117,7 @@ export default function Home() {
                     },
                 });
                 if (response.ok) {
+
                     setIsLoggedIn(true);
                 }
             } catch (error) {

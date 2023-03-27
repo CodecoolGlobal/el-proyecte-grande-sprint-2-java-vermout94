@@ -16,22 +16,14 @@ import logo from '../../assets/navbar-logo.png';
 import "./header.css";
 
 
-export default function Header() {
+export default function Header({loginStatus, setLoginStatus}) {
     const [showLoginModal, setShowLoginModal] = useState(false);
     const [showSignupModal, setShowSignupModal] = useState(false);
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    useEffect(() => {
-        const authToken = localStorage.getItem("token");
-        if (authToken) {
-            setIsAuthenticated(true);
-        } else {
-            setIsAuthenticated(false);
-        }
-    }, []);
     function handleLogout() {
         localStorage.removeItem("token");
-        setIsAuthenticated(false);
+        setLoginStatus(false);
+        console.log("Logged out");
     }
 
 
@@ -66,7 +58,7 @@ export default function Header() {
                     </Navbar.Collapse>
                 </div>
                 <div className="ms-auto">
-                    {isAuthenticated ? (
+                    {loginStatus ? (
                         <Button className={"logout-button"} variant="outline-dark"
                                 onClick={handleLogout}>
                             Logout
@@ -85,7 +77,7 @@ export default function Header() {
                     )
                     }
                 </div>
-                {showLoginModal && <LoginModal onClose={() => setShowLoginModal(false)}/>}
+                {showLoginModal && <LoginModal loginStatus={loginStatus} setLoginStatus={setLoginStatus} onClose={() => setShowLoginModal(false)} />}
                 {showSignupModal && <SignupModal onClose={() => setShowSignupModal(false)}/>}
             </Container>
         </Navbar>
