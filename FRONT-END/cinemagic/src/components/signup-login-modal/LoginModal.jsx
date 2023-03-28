@@ -12,6 +12,7 @@ export default function LoginModal({onClose, onSuccessfulLogin, setLoginStatus})
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+    const ENTER_KEY = 13;
 
 
     async function handleLogin() {
@@ -20,10 +21,10 @@ export default function LoginModal({onClose, onSuccessfulLogin, setLoginStatus})
         const authentication = Buffer.from(email + ":" + password).toString("base64");
         const headers = new Headers();
         headers.set("Authorization", "Basic " + authentication);
+
         try {
             const response = await fetch(uri, {
-                method: "POST",
-                headers: headers,
+                method: "POST", headers: headers,
             });
             const token = await response.text();
             localStorage.setItem('token', token);
@@ -40,9 +41,15 @@ export default function LoginModal({onClose, onSuccessfulLogin, setLoginStatus})
         }
     }
 
+    function handleKeyDown(event) {
+        if (event.keyCode === ENTER_KEY) {
+            event.preventDefault();
+            document.getElementById("login-button").click();
+        }
+    }
 
-    return (
-        <Modal centered show={true} onHide={onClose}>
+
+    return (<Modal centered show={true} onHide={onClose}>
             <Modal.Header>
                 <Modal.Title>Login</Modal.Title>
                 <Button variant="link" className="close" onClick={onClose}>
@@ -56,7 +63,8 @@ export default function LoginModal({onClose, onSuccessfulLogin, setLoginStatus})
                         <Form.Control type="email"
                                       placeholder="Enter email"
                                       autoFocus value={email}
-                                      onChange={event => setEmail(event.target.value)}/>
+                                      onChange={event => setEmail(event.target.value)}
+                                      onKeyDown={handleKeyDown}/>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -64,7 +72,8 @@ export default function LoginModal({onClose, onSuccessfulLogin, setLoginStatus})
                         <Form.Control type="password" placeholder="Password"
                                       value={password}
                                       onChange={event => setPassword(event.target.value)}
-                                      autoComplete="current-password"/>
+                                      autoComplete="current-password"
+                                      onKeyDown={handleKeyDown}/>
                     </Form.Group>
                 </Form>
             </Modal.Body>
@@ -72,10 +81,9 @@ export default function LoginModal({onClose, onSuccessfulLogin, setLoginStatus})
                 <Button variant="secondary" onClick={onClose}>
                     Close
                 </Button>
-                <Button variant="info" onClick={handleLogin}>
+                <Button variant="info" onClick={handleLogin} id="login-button">
                     Login
                 </Button>
             </Modal.Footer>
-        </Modal>
-    );
+        </Modal>);
 }

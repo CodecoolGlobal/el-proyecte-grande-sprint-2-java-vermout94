@@ -11,6 +11,7 @@ export default function SignupModal({onClose}) {
     const [password, setPassword] = useState('');
     const [currentAppUser, setCurrentAppUser] = useState("");
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const ENTER_KEY = 13;
 
     /*   export function loginCurrentUser(AppUser) {
            setCurrentAppUser(AppUser.id);
@@ -28,6 +29,13 @@ export default function SignupModal({onClose}) {
             setEmailError('Please enter a valid email address.');
         } else {
             setEmailError('');
+        }
+    }
+
+    function handleKeyDown(event) {
+        if (event.keyCode === ENTER_KEY) {
+            event.preventDefault();
+            document.getElementById("signup-button").click();
         }
     }
 
@@ -87,7 +95,8 @@ export default function SignupModal({onClose}) {
                                       autoFocus
                                       value={email}
                                       onChange={handleEmailChange}
-                                      isInvalid={!!emailError}/>
+                                      isInvalid={!!emailError}
+                                      onKeyDown={handleKeyDown}/>
                         <Form.Control.Feedback type="invalid">
                             {emailError}
                         </Form.Control.Feedback>
@@ -98,7 +107,8 @@ export default function SignupModal({onClose}) {
                                       placeholder="Password"
                                       value={password}
                                       onChange={event => setPassword(event.target.value)}
-                                      autoComplete="current-password"/>
+                                      autoComplete="current-password"
+                                      onKeyDown={handleKeyDown}/>
                     </Form.Group>
                 </Form>
             </Modal.Body>
@@ -106,7 +116,7 @@ export default function SignupModal({onClose}) {
                 <Button variant="secondary" onClick={onClose}>
                     Close
                 </Button>
-                <Button variant="info" onClick={handleSubmit}>
+                <Button variant="info" onClick={handleSubmit} id="signup-button">
                     Signup
                 </Button>
             </Modal.Footer>
