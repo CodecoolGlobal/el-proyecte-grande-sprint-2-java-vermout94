@@ -1,16 +1,13 @@
 /*react*/
-import React, {useState, useCallback} from 'react';
-import {useLoaderData, useLocation} from "react-router-dom";
+import React, {useCallback, useState} from 'react';
+import {useLoaderData, useLocation, useNavigate} from "react-router-dom";
 /*components*/
 import MediaCarousel from "../../components/media-carousel/MediaCarousel";
 import UserDashboard from "../../components/user-dashboard/UserDashboard";
 /*apiConstants.js*/
-import {UPCOMING_MOVIES_URL} from "../../data/apiConstants";
+import {LOGIN_URL, UPCOMING_MOVIES_URL} from "../../data/apiConstants";
 /*apiHelpers.js*/
 import {fetchHelper} from "../../apiHelpers";
-import LoginModal from "../../components/signup-login-modal/LoginModal";
-import {useNavigate} from "react-router-dom";
-import {LOGIN_URL} from "../../data/apiConstants";
 
 
 export async function homeLoader() {
@@ -103,7 +100,8 @@ export default function Home() {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const upcomingMovieData = location.state?.upcomingMovieData;
+    /*const upcomingMovieData = location.state?.upcomingMovieData;*/
+    const upcomingMovieData = useLoaderData().upcomingMovieData;
 
     const checkAuthentication = useCallback(async () => {
         const token = localStorage.getItem('token');
@@ -121,7 +119,7 @@ export default function Home() {
                     setIsLoggedIn(true);
                 }
             } catch (error) {
-                console.error("Error with token:",error);
+                console.error("Error with token:", error);
             }
         }
     }, []);
@@ -133,8 +131,8 @@ export default function Home() {
     }, [checkAuthentication]);
 
     return isLoggedIn ? (
-        <UserDashboard />
+        <UserDashboard/>
     ) : (
-        <MediaCarousel data={upcomingMovieData} />
+        <MediaCarousel data={upcomingMovieData}/>
     );
 }
