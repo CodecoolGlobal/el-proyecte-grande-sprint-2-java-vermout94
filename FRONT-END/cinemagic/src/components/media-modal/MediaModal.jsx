@@ -29,8 +29,11 @@ const MediaModal = ({selectedMedia, onCloseModal}) => {
     return (
         <div>
             <Modal centered show={showModal} onHide={handleCloseModal}>
-                <Modal.Header closeButton>
+                <Modal.Header>
                     <Modal.Title>{selectedMedia.title ? selectedMedia.title : selectedMedia.name}</Modal.Title>
+                    <Button variant="link" className="close" onClick={handleCloseModal}>
+                        <span aria-hidden="true">&times;</span>
+                    </Button>
                 </Modal.Header>
                 <Modal.Body>
                     <img src={`${POSTER_URL}/${selectedMedia.poster_path}`} alt={selectedMedia.title}/>
