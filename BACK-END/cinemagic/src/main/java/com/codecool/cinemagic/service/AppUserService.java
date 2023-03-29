@@ -2,6 +2,10 @@ package com.codecool.cinemagic.service;
 
 import com.codecool.cinemagic.persistence.model.AppUser;
 import com.codecool.cinemagic.persistence.repository.AppUserRepository;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -29,5 +33,6 @@ public class AppUserService {
         appUser.getFavoriteMovieIds().add(movieId);
         appUserRepository.save(appUser);
     }
+
 }
 

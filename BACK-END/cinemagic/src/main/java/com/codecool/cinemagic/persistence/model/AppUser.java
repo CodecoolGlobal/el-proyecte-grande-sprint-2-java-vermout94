@@ -33,4 +33,9 @@ public class AppUser {
     /*Maybe change this to ID instead of String*/
     @ElementCollection
     private Set<Long> favoriteMovieIds = new HashSet<>();
+
+
+    public Set<Long> getFavouriteMovieIds() {
+        return favoriteMovieIds;
+    }
 }
