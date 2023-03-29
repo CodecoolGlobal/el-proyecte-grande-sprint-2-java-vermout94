@@ -11,6 +11,7 @@ import {useNavigate} from "react-router-dom";
 export default function LoginModal({onClose, onSuccessfulLogin, setLoginStatus}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [errors, setErrors] = useState({email: '', password: ''});
     const navigate = useNavigate();
     const ENTER_KEY = 13;
 
@@ -21,6 +22,10 @@ export default function LoginModal({onClose, onSuccessfulLogin, setLoginStatus})
         const authentication = Buffer.from(email + ":" + password).toString("base64");
         const headers = new Headers();
         headers.set("Authorization", "Basic " + authentication);
+
+        if (!validate()) {
+            return;
+        }
 
         try {
             const response = await fetch(uri, {
@@ -48,42 +53,64 @@ export default function LoginModal({onClose, onSuccessfulLogin, setLoginStatus})
         }
     }
 
+    function validate() {
+        let isValid = true;
+        let errors = {email: '', password: ''};
+
+        if (!email.trim()) {
+            isValid = false;
+            errors.email = 'Email is required';
+        }
+
+        if (!password.trim()) {
+            isValid = false;
+            errors.password = 'Password is required';
+        }
+
+        setErrors(errors);
+        return isValid;
+    };
+
 
     return (<Modal centered show={true} onHide={onClose}>
-            <Modal.Header>
-                <Modal.Title>Login</Modal.Title>
-                <Button variant="link" className="close" onClick={onClose}>
-                    <span aria-hidden="true">&times;</span>
-                </Button>
-            </Modal.Header>
-            <Modal.Body>
-                <Form>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email"
-                                      placeholder="Enter email"
-                                      autoFocus value={email}
-                                      onChange={event => setEmail(event.target.value)}
-                                      onKeyDown={handleKeyDown}/>
-                    </Form.Group>
+        <Modal.Header>
+            <Modal.Title>Login</Modal.Title>
+            <Button variant="link" className="close" onClick={onClose}>
+                <span aria-hidden="true">&times;</span>
+            </Button>
+        </Modal.Header>
+        <Modal.Body>
+            <Form>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control type="email"
+                                  placeholder="Enter email"
+                                  autoFocus value={email}
+                                  onChange={event => setEmail(event.target.value)}
+                                  onKeyDown={handleKeyDown}
+                                  isInvalid={!!errors.email}/>
+                    <Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>
+                </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password"
-                                      value={password}
-                                      onChange={event => setPassword(event.target.value)}
-                                      autoComplete="current-password"
-                                      onKeyDown={handleKeyDown}/>
-                    </Form.Group>
-                </Form>
-            </Modal.Body>
-            <Modal.Footer>
-                <Button variant="secondary" onClick={onClose}>
-                    Close
-                </Button>
-                <Button variant="info" onClick={handleLogin} id="login-button">
-                    Login
-                </Button>
-            </Modal.Footer>
-        </Modal>);
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" placeholder="Password"
+                                  value={password}
+                                  onChange={event => setPassword(event.target.value)}
+                                  autoComplete="current-password"
+                                  onKeyDown={handleKeyDown}
+                                  isInvalid={!!errors.password}/>
+                    <Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>
+                </Form.Group>
+            </Form>
+        </Modal.Body>
+        <Modal.Footer>
+            <Button variant="secondary" onClick={onClose}>
+                Close
+            </Button>
+            <Button variant="info" onClick={handleLogin} id="login-button">
+                Login
+            </Button>
+        </Modal.Footer>
+    </Modal>);
 }
