@@ -9,14 +9,8 @@ export default function SignupModal({onClose}) {
     const [email, setEmail] = useState('');
     const [emailError, setEmailError] = useState('');
     const [password, setPassword] = useState('');
-    const [currentAppUser, setCurrentAppUser] = useState("");
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const ENTER_KEY = 13;
-
-    /*   export function loginCurrentUser(AppUser) {
-           setCurrentAppUser(AppUser.id);
-           console.log(currentAppUser);
-       }*/
 
     function handleEmailChange(event) {
         const emailValue = event.target.value;
@@ -33,7 +27,6 @@ export default function SignupModal({onClose}) {
     }
 
     function validatePassword(password) {
-        //const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+}{"':;?/>.<,])(?!.*\s).{8,}$/;
         const passwordPattern = /^(?=.*[A-Za-z].*[A-Za-z].*[A-Za-z])[A-Za-z0-9!@#$%^&*()_+}{"':;?/>.<,]*$/;
         return passwordPattern.test(password);
     }

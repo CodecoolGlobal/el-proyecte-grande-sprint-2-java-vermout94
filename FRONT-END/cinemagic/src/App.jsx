@@ -1,5 +1,5 @@
 /*react*/
-import React, {useState, useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import ReactDOM from 'react-dom/client'
 import {createBrowserRouter, RouterProvider,} from "react-router-dom";
 /*layouts*/
@@ -13,75 +13,9 @@ import TopRatedTv, {topRatedTvLoader} from "./pages/tv/top-rated/TopRatedTv";
 import People, {peopleLoader} from "./pages/People";
 import Home, {homeLoader} from "./pages/home/Home";
 import UpcomingMovies, {upcomingMoviesLoader} from "./pages/movie/upcoming/UpcomingMovies";
-import SignupModal from "./components/signup-login-modal/SignupModal";
-import LoginModal from "./components/signup-login-modal/LoginModal";
 import UserDashboard from "./components/user-dashboard/UserDashboard";
 /*css*/
 import './index.css'
-
-
-/*const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Main/>,
-        children: [
-            {
-                index: true,
-                element: <Home/>,
-                loader: homeLoader,
-            },
-            {
-                path: "/movies/latest",
-                element: <LatestMovies/>,
-                loader: latestMoviesLoader,
-            },
-            {
-                path: "/movies/most-popular",
-                element: <PopularMovies/>,
-                loader: popularMoviesLoader,
-            },
-            {
-                path: "/movies/top-rated",
-                element: <TopRatedMovies/>,
-                loader: topRatedMoviesLoader,
-            },
-            {
-                path: "/movies/upcoming",
-                element: <UpcomingMovies/>,
-                loader: upcomingMoviesLoader,
-            },
-            {
-                path: "/tv/most-popular",
-                element: <PopularTv/>,
-                loader: popularTvLoader,
-            },
-            {
-                path: "/tv/top-rated",
-                element: <TopRatedTv/>,
-                loader: topRatedTvLoader,
-            },
-            {
-                path: "/people",
-                element: <People/>,
-                loader: peopleLoader,
-            },
-            {
-                path: "/login",
-                element: <LoginModal/>,
-            },
-            {
-                path: "/UserDashboard",
-                element: <UserDashboard/>
-            },
-            {
-                path: "/signup",
-                element: <SignupModal/>,
-            }
-
-        ],
-    },
-
-])*/
 
 function AppRoot() {
     const [loginStatus, setLoginStatus] = useState(false);
@@ -142,7 +76,7 @@ function AppRoot() {
                 },
                 {
                     path: "/UserDashboard",
-                    element: <UserDashboard loginStatus={loginStatus} setLoginStatus={setLoginStatus}/>
+                    element: <UserDashboard loginStatus={loginStatus}/>
                 },
 
 
@@ -151,7 +85,7 @@ function AppRoot() {
 
     ])
     return (
-            <RouterProvider router={router}/>
+        <RouterProvider router={router}/>
     )
 }
 
