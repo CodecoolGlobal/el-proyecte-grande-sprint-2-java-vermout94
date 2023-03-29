@@ -1,6 +1,7 @@
 package com.codecool.cinemagic.configuration;
 
 
+import com.codecool.cinemagic.persistence.model.AppUser;
 import com.codecool.cinemagic.persistence.model.AppUserPrinciple;
 import com.codecool.cinemagic.persistence.repository.AppUserRepository;
 
@@ -11,12 +12,15 @@ import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
 import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -41,18 +45,11 @@ public class SecurityConfiguration {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http.csrf().disable()
-                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-                .authorizeHttpRequests(authorization -> {
-                    authorization.requestMatchers("/api/authentication/login").authenticated();
-                    authorization.requestMatchers("/h2-console/**").permitAll();
-                    authorization.anyRequest().permitAll();
-                })
-                .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .httpBasic(Customizer.withDefaults())
-                .headers().frameOptions().disable()
-                .and().build();
+        return http.csrf().disable().cors(cors -> cors.configurationSource(corsConfigurationSource())).authorizeHttpRequests(authorization -> {
+            authorization.requestMatchers("/api/authentication/login").authenticated();
+            authorization.requestMatchers("/h2-console/**").permitAll();
+            authorization.anyRequest().permitAll();
+        }).oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt).sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)).httpBasic(Customizer.withDefaults()).headers().frameOptions().disable().and().build();
     }
 
     @Bean
@@ -69,6 +66,7 @@ public class SecurityConfiguration {
 
     @Bean
     public UserDetailsService userDetailsService(AppUserRepository appUserRepository) {
+        System.out.println("LOGIN");
         return username -> appUserRepository.findByEmail(username)
                 .map(AppUserPrinciple::new)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found."));

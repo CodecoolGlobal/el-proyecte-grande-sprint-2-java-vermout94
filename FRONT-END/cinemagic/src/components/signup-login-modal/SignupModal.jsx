@@ -10,6 +10,8 @@ export default function SignupModal({onClose}) {
     const [emailError, setEmailError] = useState('');
     const [password, setPassword] = useState('');
     const [currentAppUser, setCurrentAppUser] = useState("");
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const ENTER_KEY = 13;
 
     /*   export function loginCurrentUser(AppUser) {
            setCurrentAppUser(AppUser.id);
@@ -30,6 +32,19 @@ export default function SignupModal({onClose}) {
         }
     }
 
+    function validatePassword(password) {
+        //const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+}{"':;?/>.<,])(?!.*\s).{8,}$/;
+        const passwordPattern = /^(?=.*[A-Za-z].*[A-Za-z].*[A-Za-z])[A-Za-z0-9!@#$%^&*()_+}{"':;?/>.<,]*$/;
+        return passwordPattern.test(password);
+    }
+
+    function handleKeyDown(event) {
+        if (event.keyCode === ENTER_KEY) {
+            event.preventDefault();
+            document.getElementById("signup-button").click();
+        }
+    }
+
     async function handleSubmit(event) {
         event.preventDefault();
 
@@ -37,6 +52,12 @@ export default function SignupModal({onClose}) {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test(email)) {
             setEmailError('Please enter a valid email address.');
+            return;
+        }
+
+        // Validate password input
+        if (!validatePassword(password)) {
+            alert('Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character.');
             return;
         }
 
@@ -58,8 +79,8 @@ export default function SignupModal({onClose}) {
                 alert(errorData.message || "Something went wrong");
                 return;
             }
-
             onClose();
+            setIsAuthenticated(true);
         } catch (error) {
             if (error.response && error.response.status === 400) {
                 alert("Email already exists");
@@ -86,7 +107,8 @@ export default function SignupModal({onClose}) {
                                       autoFocus
                                       value={email}
                                       onChange={handleEmailChange}
-                                      isInvalid={!!emailError}/>
+                                      isInvalid={!!emailError}
+                                      onKeyDown={handleKeyDown}/>
                         <Form.Control.Feedback type="invalid">
                             {emailError}
                         </Form.Control.Feedback>
@@ -97,7 +119,8 @@ export default function SignupModal({onClose}) {
                                       placeholder="Password"
                                       value={password}
                                       onChange={event => setPassword(event.target.value)}
-                                      autoComplete="current-password"/>
+                                      autoComplete="current-password"
+                                      onKeyDown={handleKeyDown}/>
                     </Form.Group>
                 </Form>
             </Modal.Body>
@@ -105,7 +128,7 @@ export default function SignupModal({onClose}) {
                 <Button variant="secondary" onClick={onClose}>
                     Close
                 </Button>
-                <Button variant="info" onClick={handleSubmit}>
+                <Button variant="info" onClick={handleSubmit} id="signup-button">
                     Signup
                 </Button>
             </Modal.Footer>

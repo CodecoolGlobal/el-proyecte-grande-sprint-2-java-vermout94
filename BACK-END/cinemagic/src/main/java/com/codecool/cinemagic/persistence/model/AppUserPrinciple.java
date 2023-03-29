@@ -5,6 +5,7 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Set;
 
 public class AppUserPrinciple implements UserDetails {
     private final AppUser appUser;
@@ -26,6 +27,10 @@ public class AppUserPrinciple implements UserDetails {
     @Override
     public String getUsername() {
         return appUser.getEmail();
+    }
+
+    public Set<Long> getFavouriteMovies() {
+        return appUser.getFavouriteMovieIds();
     }
 
     @Override
