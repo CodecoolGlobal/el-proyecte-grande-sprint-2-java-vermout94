@@ -4,15 +4,10 @@ import com.codecool.cinemagic.service.AppUserService;
 import com.codecool.cinemagic.service.security.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("api/authentication")
@@ -20,8 +15,6 @@ import java.util.stream.Collectors;
 public class AuthenticationEndpoint {
     private final AuthenticationService authenticationService;
     private final AppUserService appUserService;
-    private final UserDetailsService userDetailsService;
-    private AppUser appUser;
 
     @PostMapping("signup")
     public void signup(@RequestBody @Validated AppUser appUser) {
@@ -39,6 +32,8 @@ public class AuthenticationEndpoint {
         appUserService.addFavoriteMovie(userId, movieId);
     }
 
+    /*todo ask el for database user check
+     *  + ask el where to store the keys and how to remove them from git (gitguardian useful???)*/
     @PostMapping("login")
     public String login(Authentication authentication) {
         System.out.println("User logged in: " + authentication.getName());
