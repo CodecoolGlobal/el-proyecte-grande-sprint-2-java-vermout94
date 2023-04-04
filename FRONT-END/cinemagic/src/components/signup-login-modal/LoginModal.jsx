@@ -8,16 +8,14 @@ import {LOGIN_URL} from "../../data/apiConstants";
 import {Buffer} from "buffer";
 import {useNavigate} from "react-router-dom";
 
-export default function LoginModal({onClose, onSuccessfulLogin, setLoginStatus}) {
+export default function LoginModal({onClose, setLoginStatus}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState({email: '', password: ''});
     const navigate = useNavigate();
     const ENTER_KEY = 13;
 
-
     async function handleLogin() {
-        event.preventDefault();
         const uri = LOGIN_URL;
         const authentication = Buffer.from(email + ":" + password).toString("base64");
         const headers = new Headers();
@@ -31,6 +29,11 @@ export default function LoginModal({onClose, onSuccessfulLogin, setLoginStatus})
             const response = await fetch(uri, {
                 method: "POST", headers: headers,
             });
+            /*todo maybe change this to 400 and up but only if edge cases happen*/
+            if (response.status === 401) {
+                alert("Wrong username or password");
+                return;
+            }
             const token = await response.text();
             localStorage.setItem('token', token);
 
@@ -69,8 +72,7 @@ export default function LoginModal({onClose, onSuccessfulLogin, setLoginStatus})
 
         setErrors(errors);
         return isValid;
-    };
-
+    }
 
     return (<Modal centered show={true} onHide={onClose}>
         <Modal.Header>
