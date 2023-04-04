@@ -1,5 +1,5 @@
 /*react*/
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 /*bootstrap*/
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -8,8 +8,8 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import {NavLink} from "react-router-dom";
 /*components*/
-import LoginModal from "../signup-login-modal/LoginModal";
-import SignupModal from "../signup-login-modal/SignupModal";
+import LoginModal from "../login-modal/LoginModal";
+import SignupModal from "../signup-modal/SignupModal";
 /*logo*/
 import logo from '../../assets/navbar-logo.png';
 /*css*/
@@ -77,7 +77,8 @@ export default function Header({loginStatus, setLoginStatus}) {
                     )
                     }
                 </div>
-                {showLoginModal && <LoginModal loginStatus={loginStatus} setLoginStatus={setLoginStatus} onClose={() => setShowLoginModal(false)} />}
+                {showLoginModal && <LoginModal loginStatus={loginStatus} setLoginStatus={setLoginStatus}
+                                               onClose={() => setShowLoginModal(false)}/>}
                 {showSignupModal && <SignupModal onClose={() => setShowSignupModal(false)}/>}
             </Container>
         </Navbar>
