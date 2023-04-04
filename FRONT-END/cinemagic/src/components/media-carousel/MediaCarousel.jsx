@@ -7,17 +7,12 @@ import {BACKDROP_URL, POSTER_URL} from "../../data/apiConstants";
 /*css*/
 import "./media-carousel.css"
 import MediaModal from "../media-modal/MediaModal";
+/*service*/
+import {handleCloseModal, handleOpenModal} from "../../service";
 
 function MediaCarousel({data}) {
     const [selectedMedia, setSelectedMedia] = useState(null);
 
-    const handleOpenModal = (media) => {
-        setSelectedMedia(media);
-    };
-
-    const handleCloseModal = () => {
-        setSelectedMedia(null);
-    };
     return (
         <div>
             <Carousel fade={true} indicators={false} nextLabel={""} prevLabel={""}>
@@ -26,7 +21,7 @@ function MediaCarousel({data}) {
                         return (
                             <Carousel.Item
                                 key={media.id}
-                                onClick={() => handleOpenModal(media)}
+                                onClick={() => handleOpenModal(setSelectedMedia, media)}
                             >
                                 <img
                                     className={"media-backdrop"}
@@ -50,7 +45,7 @@ function MediaCarousel({data}) {
                 selectedMedia &&
                 <MediaModal
                     selectedMedia={selectedMedia}
-                    onCloseModal={handleCloseModal}
+                    onCloseModal={() => handleCloseModal(setSelectedMedia)}
                 />
             }
         </div>

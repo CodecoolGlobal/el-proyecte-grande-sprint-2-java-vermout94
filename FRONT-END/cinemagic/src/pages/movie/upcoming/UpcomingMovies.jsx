@@ -3,8 +3,8 @@ import React from 'react';
 import {useLoaderData} from "react-router-dom";
 /*components*/
 import MediaFigure from "../../../components/media-figure/MediaFigure";
-/*apiHelpers.js*/
-import {fetchHelper} from "../../../apiHelpers";
+/*service.js*/
+import {fetchHelper} from "../../../service";
 /*apiConstants.js*/
 import {UPCOMING_MOVIES_URL} from "../../../data/apiConstants";
 

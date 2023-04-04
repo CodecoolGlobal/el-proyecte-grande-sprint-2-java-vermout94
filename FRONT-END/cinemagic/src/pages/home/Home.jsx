@@ -6,8 +6,8 @@ import MediaCarousel from "../../components/media-carousel/MediaCarousel";
 import UserDashboard from "../../components/user-dashboard/UserDashboard";
 /*apiConstants.js*/
 import {LOGIN_URL, UPCOMING_MOVIES_URL} from "../../data/apiConstants";
-/*apiHelpers.js*/
-import {fetchHelper} from "../../apiHelpers";
+/*service.js*/
+import {fetchHelper} from "../../service";
 
 
 export async function homeLoader() {

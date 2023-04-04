@@ -6,19 +6,13 @@ import {Figure} from "react-bootstrap";
 import {BACKDROP_URL, POSTER_URL} from "../../data/apiConstants";
 /*css*/
 import "./media-figure.css"
+/*Components*/
 import MediaModal from "../media-modal/MediaModal";
+/*service*/
+import {handleCloseModal, handleOpenModal} from "../../service";
 
 const MediaFigure = ({data}) => {
-    /*TODO find a solution for the repeating code snippets of the MediaModal*/
     const [selectedMedia, setSelectedMedia] = useState(null);
-
-    const handleOpenModal = (media) => {
-        setSelectedMedia(media);
-    };
-
-    const handleCloseModal = () => {
-        setSelectedMedia(null);
-    };
 
     return (
         <div>
@@ -45,7 +39,7 @@ const MediaFigure = ({data}) => {
                         return (
                             <Figure
                                 key={media.id} style={figureStyle}
-                                onClick={() => handleOpenModal(media)}
+                                onClick={() => handleOpenModal(setSelectedMedia, media)}
                             >
                                 <div style={figureBackgroundStyle}></div>
                                 <Figure.Image src={`${POSTER_URL}/${media.poster_path}`}/>
@@ -73,7 +67,7 @@ const MediaFigure = ({data}) => {
                     selectedMedia &&
                     <MediaModal
                         selectedMedia={selectedMedia}
-                        onCloseModal={handleCloseModal}
+                        onCloseModal={() => handleCloseModal(setSelectedMedia)}
                     />
                 }
             </div>
