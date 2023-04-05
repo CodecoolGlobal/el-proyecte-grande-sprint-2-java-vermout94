@@ -8,8 +8,7 @@ import "../header/header.css"
 const MediaModal = ({selectedMedia, onCloseModal}) => {
     const [showModal, setShowModal] = useState(true);
     const [isFavorite, setIsFavorite] = useState(false);
-    /*TODO find a solution for the user ID*/
-    const userId = 1;
+    const token = localStorage.getItem("token");
 
     const handleCloseModal = () => {
         setShowModal(false);
@@ -17,12 +16,15 @@ const MediaModal = ({selectedMedia, onCloseModal}) => {
     };
 
     const handleSetAsFavorite = async () => {
-        try {
-            await saveFavoriteMovie(userId, selectedMedia.id);
-            setIsFavorite(!isFavorite);
-        } catch (error) {
-            console.error("Error saving favorite movie:", error);
+        if (!token) {
+            alert("Please login to save your favorite movies!")
         }
+        /*        try {
+                    await saveFavoriteMovie(userId, selectedMedia.id);
+                    setIsFavorite(!isFavorite);
+                } catch (error) {
+                    console.error("Error saving favorite movie:", error);
+                }*/
     };
 
 
