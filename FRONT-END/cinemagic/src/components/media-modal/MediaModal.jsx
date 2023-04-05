@@ -9,19 +9,19 @@ import jwt_decode from "jwt-decode";
 const MediaModal = ({selectedMedia, onCloseModal}) => {
     const [showModal, setShowModal] = useState(true);
     const [isFavorite, setIsFavorite] = useState(false);
-    const token = localStorage.getItem("token");
-    const decodedToken = jwt_decode(token);
-    const currentUserEmail = decodedToken.sub;
 
     const handleCloseModal = () => {
         setShowModal(false);
         onCloseModal();
     };
-
+    
     const handleSetAsFavorite = async () => {
+        const token = localStorage.getItem("token");
         if (!token) {
             alert("Please login to save your favorite movies!")
         } else {
+            const decodedToken = jwt_decode(token);
+            const currentUserEmail = decodedToken.sub;
             console.log(currentUserEmail);
         }
         /*        try {

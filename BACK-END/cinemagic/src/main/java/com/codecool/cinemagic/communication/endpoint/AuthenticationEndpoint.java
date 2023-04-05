@@ -27,16 +27,14 @@ public class AuthenticationEndpoint {
         appUserService.saveAppUser(appUser);
     }
 
-    @PostMapping("{userId}/favorite-movies/{movieId}")
-    public void addFavoriteMovie(@PathVariable long userId, @PathVariable long movieId) {
-        appUserService.addFavoriteMovie(userId, movieId);
-    }
-
-    /*todo ask el for database user check
-     *  + ask el where to store the keys and how to remove them from git (gitguardian useful???)*/
     @PostMapping("login")
     public String login(Authentication authentication) {
         System.out.println("User logged in: " + authentication.getName());
         return authenticationService.login(authentication);
+    }
+
+    @PostMapping("{userId}/favorite-movies/{movieId}")
+    public void addFavoriteMovie(@PathVariable long userId, @PathVariable long movieId) {
+        appUserService.addFavoriteMovie(userId, movieId);
     }
 }
