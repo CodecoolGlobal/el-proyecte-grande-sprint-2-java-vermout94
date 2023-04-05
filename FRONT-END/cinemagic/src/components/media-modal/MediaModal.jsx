@@ -3,12 +3,15 @@ import {POSTER_URL} from "../../data/apiConstants";
 import Button from "react-bootstrap/Button";
 import React, {useState} from 'react';
 import "../header/header.css"
+import jwt_decode from "jwt-decode";
 /*import {saveFavoriteMovie} from "../../service";*/
 
 const MediaModal = ({selectedMedia, onCloseModal}) => {
     const [showModal, setShowModal] = useState(true);
     const [isFavorite, setIsFavorite] = useState(false);
     const token = localStorage.getItem("token");
+    const decodedToken = jwt_decode(token);
+    const currentUserEmail = decodedToken.sub;
 
     const handleCloseModal = () => {
         setShowModal(false);
@@ -18,6 +21,8 @@ const MediaModal = ({selectedMedia, onCloseModal}) => {
     const handleSetAsFavorite = async () => {
         if (!token) {
             alert("Please login to save your favorite movies!")
+        } else {
+            console.log(currentUserEmail);
         }
         /*        try {
                     await saveFavoriteMovie(userId, selectedMedia.id);
