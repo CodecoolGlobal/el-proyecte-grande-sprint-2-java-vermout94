@@ -4,17 +4,16 @@ import Button from "react-bootstrap/Button";
 import React, {useState} from 'react';
 import "../header/header.css"
 import jwt_decode from "jwt-decode";
-/*import {saveFavoriteMovie} from "../../service";*/
+import {saveFavoriteMovie} from "../../service";
 
 const MediaModal = ({selectedMedia, onCloseModal}) => {
     const [showModal, setShowModal] = useState(true);
-    const [isFavorite, setIsFavorite] = useState(false);
 
     const handleCloseModal = () => {
         setShowModal(false);
         onCloseModal();
     };
-    
+
     const handleSetAsFavorite = async () => {
         const token = localStorage.getItem("token");
         if (!token) {
@@ -23,13 +22,13 @@ const MediaModal = ({selectedMedia, onCloseModal}) => {
             const decodedToken = jwt_decode(token);
             const currentUserEmail = decodedToken.sub;
             console.log(currentUserEmail);
+
+            try {
+                await saveFavoriteMovie(currentUserEmail, selectedMedia.id);
+            } catch (error) {
+                console.error("Error saving favorite movie:", error);
+            }
         }
-        /*        try {
-                    await saveFavoriteMovie(userId, selectedMedia.id);
-                    setIsFavorite(!isFavorite);
-                } catch (error) {
-                    console.error("Error saving favorite movie:", error);
-                }*/
     };
 
 
@@ -51,7 +50,7 @@ const MediaModal = ({selectedMedia, onCloseModal}) => {
                         Close
                     </Button>
                     <Button variant="info" onClick={handleSetAsFavorite}>
-                        {isFavorite ? "Remove from Favorites" : "Set as Favorite"}
+                        Set as Favorite
                     </Button>
                 </Modal.Footer>
             </Modal>
