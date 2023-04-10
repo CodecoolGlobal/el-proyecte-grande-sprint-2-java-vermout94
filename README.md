@@ -9,7 +9,7 @@ The goal for this project is to help people find information and recommend movie
 
 ## Dependencies
 
-**Frontend:** Node.js
+**Frontend:** React
 
 **Backend:** Maven3, Java 17
 
